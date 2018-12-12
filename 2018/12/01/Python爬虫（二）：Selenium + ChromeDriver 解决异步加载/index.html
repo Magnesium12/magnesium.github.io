@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#33363b">
+    <meta name="msapplication-TileColor" content="#33363b">
+    
+    
+    
+    
+    <meta name="keywords" content="Life, ARIA, Hexo">
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-chrome-192x192.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    
+    
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    
+    
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#33363b">
+    
+    
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    
+    
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    
+    
+    <link rel="alternate" href="/atom.xml" title="12TH`s Cabin" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="/favicons/favicon.ico">
+    
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    
+    <link rel="stylesheet" type="text/css" href="/css/sidebar.css">
+    
+    
+<link rel="stylesheet" type="text/css" href="/css/page.css">
+<link rel="stylesheet" type="text/css" href="/css/post.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" type="text/css" href="/css/lightgallery.min.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script defer type="text/javascript" src="/js/util.js"></script>
+    <script defer type="text/javascript" src="/js/scrollspy.js"></script>
+    <script defer type="text/javascript" src="/js/fontawesome-all.min.js"></script>
+    <script defer type="text/javascript" src="/js/lightgallery.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-fullscreen.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-hash.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-pager.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-thumbnail.min.js"></script>
+    <script defer type="text/javascript" src="/js/lg-zoom.min.js"></script>
+    
+    <script defer src="/js/busuanzi.pure.mini.js"></script>
+    
+    
+    <script defer type="text/javascript" src="/js/search.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "search.xml";
+      if (searchPath.length === 0) {
+        searchPath = "search.xml";
+      }
+      var path = "/" + searchPath;
+      searchFunc(path, "search-input", "search-result");
+    });
+    </script>
+    
+    
+    <script defer type="text/javascript" src="/js/index.js"></script>
+    
+    <script defer type="text/javascript" src="/js/custom.js"></script>
+    <title>Python爬虫（二）：Selenium + ChromeDriver 解决异步加载 | 12TH`s Cabin - Who will fall in love with ordinary?</title>
+  </head>
+  <body itemscope="" itemtype="http://schema.org/WebPage" lang="default" data-spy="scroll" data-target=".list-group">
+    
+<header id="header" class="header" style="background: #33363b;">
+  <div class="container">
+    <div class="header-container">
+      <div class="header-title">
+        <h1 class="title"><a href="/">12TH`s Cabin</a></h1>
+        <h2 class="subtitle">Who will fall in love with ordinary?</h2>
+      </div>
+      
+      <div class="logo">
+        <img src="/images/logo.png" alt="logo">
+      </div>
+      
+    </div>
+    <nav id="nav" class="nav">
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <ul id="menu" role="menubar" aria-hidden="false">
+        
+        <li role="menuitem"><a href="/">首页</a></li>
+        
+        <li role="menuitem"><a href="/archives/">归档</a></li>
+        
+        <li role="menuitem"><a href="/categories/">分类</a></li>
+        
+        <li role="menuitem"><a href="/tags/">标签</a></li>
+        
+        <li role="menuitem"><a href="/about/">关于</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            
+<div id="post" class="page">
+  
+  <article class="article post card animate" itemscope="" itemtype="http://schema.org/Article">
+    <div class="post-block">
+      <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/01/Python爬虫（二）：Selenium + ChromeDriver 解决异步加载/">
+      <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+       <meta itemprop="name" content="Kevin Lee">
+       <meta itemprop="description" content="Everything that lives is designed to end.">
+       <meta itemprop="image" content="/images/avatar.png">
+      </span>
+      <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+       <meta itemprop="name" content="12TH`s Cabin">
+      </span>
+    </div>
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">Python爬虫（二）：Selenium + ChromeDriver 解决异步加载</h1>
+      <div class="post-meta">
+        
+        <span class="post-date">
+          <i class="far fa-calendar-plus"></i><span><time title="post-date" itemprop="dateCreated datePublished" datetime="2018-12-01T10:16:50+08:00">2018-12-01 10:16:50</time></span>
+        </span>
+        
+        
+        
+        <span class="post-meta-divider divider">|</span>
+        
+        <span class="post-categories">
+          
+          <i class="far fa-folder-open"></i><span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+        </span>
+        
+        
+      </div>
+    </header>
+    <main class="post-main" itemprop="articleBody">
+      <blockquote>
+<ul>
+<li>在上一篇博文中, python代码趋向于平铺直叙——或者说代码习惯十分不好, 稍微复杂点的功能都会举步维艰</li>
+<li>对于选择使用js控制加载网页结构的网站, 以urllib为基础的python库来说无法<del>直接</del>解决这个问题，例如爬取下拉刷新的网页：”<a href="https://bcy.net/coser&quot;" target="_blank" rel="noopener">https://bcy.net/coser&quot;</a></li>
+<li>但是事在人为, 对于笔者这个小白来说还是有<del>傻瓜式</del>替代解决思路的, 虽然很慢==</li>
+</ul>
+</blockquote>
+<a id="more"></a>
+<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><ul>
+<li>默认看过<a href="https://blog.csdn.net/qq_40900948/article/details/84305541" target="_blank" rel="noopener">Python爬虫（一）：Requests&amp;BS4 爬虫实例</a></li>
+<li>预装模块: requests, selenium, bs4, os</li>
+<li>下载<a href="http://npm.taobao.org/mirrors/chromedriver/" target="_blank" rel="noopener">chromedriver</a></li>
+</ul>
+<h2 id="流程分析"><a href="#流程分析" class="headerlink" title="流程分析"></a>流程分析</h2><ul>
+<li>bs4+selenium+chromedriver <del>强行爆破</del> 模拟点击行为获取完全加载的html</li>
+<li><del>然后用beautifulsoup为所欲为</del><h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2></li>
+</ul>
+<figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><code class="hljs undefined"># coding=utf-8<br># **************************Declaration**************************<br># @File name:        Crawler<br># @Function:         requests+selenium+chromedriver<br># @Author:           Ogiso Kazusa<br># @Date:             2018/11/15<br># @Version Number:   2.0<br># ******************************end******************************<br><br>import requests<br>import os<br>from bs4 import BeautifulSoup<br>from selenium import webdriver<br><br>#常量<br>URL = &apos;https://bcy.net&apos;<br>index_url = &apos;https://bcy.net/coser&apos;<br>CachePath = &quot;D:\\CrawlerCache\\&quot;<br><br>#储存CN的键值对, 用于isInDic()<br>dic=&#123;&apos;test&apos;:0&#125;<br><br>#检查字典, 判断是否下载过<br>def isInDic(src):<br>    if src in dic:<br>        dic[src] = dic[src] + 1<br>    else:<br>        dic[src] = 0<br>    dst = src + &quot;_&quot; + str(dic[src])<br>    return dst<br><br><br>def mkdir(path):<br>    # 去除首位空格<br>    path = path.strip()<br>    # 去除尾部 \ 符号<br>    path = path.rstrip(&quot;\\&quot;)<br><br>    # 判断路径是否存在<br>    # 存在     True<br>    # 不存在   False<br>    isExists = os.path.exists(path)<br><br>    # 判断结果<br>    if not isExists:<br>        # 如果不存在则创建目录<br>        # 创建目录操作函数<br>        os.makedirs(path)<br>        print(path + &apos; 创建成功&apos;)<br>        return True<br>    else:<br>        # 如果目录存在则不创建，并提示目录已存在<br>        print(path + &apos; 目录已存在&apos;)<br>        return False<br><br><br># 实现图片下载功能<br>def downloadImg(url, name):<br>    # 请求url页面内容,此时页面为图床页面,只有图片内容<br>    url = requests.get(url)<br>    # 格式和下载位置<br><br>    path = CachePath + name + &quot;.jpg&quot;<br><br>    # 迭代器和生成器,实现下载<br>    with open(path, &apos;wb&apos;) as f:<br>        f.write(url.content)<br>        f.close()<br><br>#驱动chrome,获取加载完全的html<br>#木桶效应的最短板, 也是本次解决方案的致命点<br>def getJsHtml(URL, cosImg):<br>    driver = webdriver.Chrome()<br>    driver.get(URL)<br>    html = driver.page_source<br>    driver.close()<br><br>    soup = BeautifulSoup(html, &apos;lxml&apos;)<br>    content = soup.find_all(&apos;div&apos;, &#123;&quot;class&quot;: &quot;img-wrap-inner&quot;&#125;)<br>    i = 1<br>    for element in content:<br>        src = element.find(&apos;img&apos;)[&apos;src&apos;]<br><br>        name=cosImg + &apos;_&apos; + str(i)<br>        downloadImg(src, name)<br>        print(&quot;下载进度：&quot;,i)<br>        i = i + 1<br><br><br># 确定存储目录CachePath,没有则生成<br>mkdir(CachePath)<br><br># 请求页面内容<br>session = requests.get(index_url)  <br><br># 获取requests 对象的内容，建议使用content，requests会尝试提供字节数<br>soup = BeautifulSoup(session.content, &quot;lxml&quot;)  <br><br># find 直接返回值, findall 返回列表(list)<br>index = soup.find_all(&apos;a&apos;, &#123;&apos;class&apos;: &quot;db posr ovf&quot;&#125;)<br><br>for element in index:<br>    # print(element)可以看到<br>    # 利用标签的父子关系，能够选择标签或者子标签中的属性值<br><br>    # 我们获取cos发布地址<br>    img_url = element[&apos;href&apos;]<br>    url = URL + img_url<br><br>    # CN = element.get(&apos;title&apos;)貌似两种写法均可<br>    CN = element[&apos;title&apos;]<br>    print(&apos;准备下载：&apos; + CN)<br>    CN = isInDic(CN)<br>    getJsHtml(url, CN)<br><br>#大功告成<br>#可以考虑指定需要获取的json？<br></code></pre></td></tr></table></figure>
+<h2 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h2><ul>
+<li>吐槽一下, 这玩意儿奇慢无比, 调用浏览器中出现了大量不必要的步骤==</li>
+<li>另一种意义上的模拟人类点击机制, <del>慢也有点用?</del>,效率实在太低</li>
+<li>令人头皮发麻，</li>
+</ul>
+
+    </main>
+    <footer class="post-footer">
+      
+      <div class="post-tags">
+        
+        <a class="post-tag button" href="/tags/Web-Crawler/" rel="tag"><i class="fas fa-tags"></i>Web Crawler</a>
+        
+        <a class="post-tag button" href="/tags/实例/" rel="tag"><i class="fas fa-tags"></i>实例</a>
+        
+      </div>
+      
+    </footer>
+  </article>
+  
+  
+  <nav class="page-nav">
+    <div class="page-nav-next page-nav-item">
+      
+      <a href="/2018/12/01/Python爬虫（一）：Requests&BS4 爬虫实例/" rel="next" title="Python爬虫（一）:Requests&BS4 爬虫实例"><i class="fas fa-angle-left"></i><span class="nav-title">Python爬虫（一）:Requests&BS4 爬虫实例</span></a>
+      
+    </div>
+    <div class="page-nav-prev page-nav-item">
+      
+      <a href="/2018/12/03/歌曲推荐The-Song-For-You/" rel="prev" title="推歌：A LETTER"><span class="nav-title">推歌：A LETTER</span><i class="fas fa-angle-right"></i></a>
+      
+    </div>
+  </nav>
+  
+  
+</div>
+
+          </div>
+          
+          
+          
+<aside class="sidebar" id="sidebar" style="background: url(/images/background.png);">
+  
+  <div class="search">
+    <div class="form-group">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+    </div>
+  </div>
+  <div class="search-result-box" id="search-result"></div>
+  
+  
+<div class="info sidebar-item" id="info">
+  
+  <img class="author-avatar" src="/images/avatar.png" alt="Kevin Lee">
+  
+  <h1 class="author-name">Kevin Lee</h1>
+  <h2 class="author-description">Everything that lives is designed to end.</h2>
+  <div class="site-count">
+    
+    <div class="archives-count">
+      <div class="site-count-title">归档</div>
+      <div><a href="/archives/">7</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="categories-count">
+      <div class="site-count-title">分类</div>
+      <div><a href="/categories/">3</a></div>
+    </div>
+    
+    
+    
+    <span class="site-count-divider divider">|</span>
+    
+    <div class="tags-count">
+      <div class="site-count-title">标签</div>
+      <div><a href="/tags/">8</a></div>
+    </div>
+    
+  </div>
+  
+  <div class="rss">
+    <a class="rss-link button sidebar-item" href="/atom.xml"><i class="fas fa-rss"></i>RSS</a>
+  </div>
+  
+</div>
+
+
+  <div class="sidebar-sticky">
+    
+    
+    
+    
+    
+    <hr>
+    <div class="post-toc sidebar-item" id="toc-div">
+      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#前期准备"><span class="toc-text">前期准备</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#流程分析"><span class="toc-text">流程分析</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#代码实现"><span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#尾声"><span class="toc-text">尾声</span></a></li></ol></div>
+    </div>
+    
+    
+    
+    <hr>
+    <div class="social-link sidebar-item">
+      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <ul>
+        
+        <li><i class="fas fa-envelope"></i><a href="mailto:137758930@qq.com" target="_blank">E-Mail</a></li>
+        
+        <li><i class="fab fa-github"></i><a href="https://magnesium12.github.com/" target="_blank">GitHub</a></li>
+        
+      </ul>
+    </div>
+    
+    
+    <hr>
+    <div class="blogroll sidebar-item">
+      <div><i class="fas fa-link"></i>友情链接</div>
+      <ul>
+        
+        <li><i class="fas fa-link"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://developer.mozilla.org/" target="_blank">MDN</a></li>
+        
+        <li><i class="fas fa-link"></i><a href="https://mozilla.github.io/nunjucks/" target="_blank">Nunjucks</a></li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</aside>
+
+
+          
+        </div>
+      </div>
+    </main>
+    
+<footer id="footer" class="footer" style="background: #33363b;">
+  <div class="container">
+    <div class="back-to-top">
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="copyright">
+          <span class="author">Kevin Lee</span><span class="year"><i class="far fa-copyright"></i>2018</span>
+        </div>
+        
+        <div class="busuanzi">
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+        </div>
+        
+      </div>
+      <div class="footer-right">
+        <div class="custom-info">
+          
+          Hosted In<i class="fab fa-github-alt"></i><a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+          
+        </div>
+        <div class="powered-by">
+          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  </body>
+</html>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title>Tutorial For Hexo</title>
+      <link href="/2018/12/12/Simple-Tutorial-For-Hexo/"/>
+      <url>/2018/12/12/Simple-Tutorial-For-Hexo/</url>
+      
+        <content type="html"><![CDATA[<p>Hexo 是一款快速,简洁且高效的博客框架, 她具有以下特性</p><ul><li>超快速度</li><li>支持markdown</li><li>一键部署</li><li>丰富的插件</li></ul><a id="more"></a><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>在安装前，你必须检查电脑中是否已安装下列应用程序：</p><ul><li>Node.js</li><li>Git  </li></ul><p>如果你的电脑中已经安装上述必备程序，那么恭喜你！接下来只需要使用 npm 即可完成 Hexo 的安装。</p><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">$ npm install -g hexo-cli<br></code></pre></td></tr></table></figure><blockquote><p><strong> Windows 用户</strong></p><p>如果你的电脑中尚未安装所需要的程序，请到官网下载Node.js &amp; Git的安装程序进行安装.<br>注意安装Node.js时注意勾选<strong>Add to PATH</strong>选项, 这将使得Node.js添加到你的计算机环境变量中.</p></blockquote><p>下载Git可能会有些慢, 请耐心等待或者自行寻找过其他源. </p><h2 id="建站"><a href="#建站" class="headerlink" title="建站"></a>建站</h2><p>Hexo安装完成后, 请在Git Bash中输入以下命令并执行</p><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">$ hexo init &lt;folder&gt;<br>$ cd &lt;folder&gt;<br>$ npm install<br></code></pre></td></tr></table></figure><p>请注意, <code>&lt;folder&gt;</code>是你指定的文件夹路径, 并且该文件夹必须为空. <code>&lt;`</code>&gt;`是特殊字符, 命令端输入时应当去除, 例如</p><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">hexo init /d/Project/Hexo<br>cd /d/Project/Hexo<br>npm install<br></code></pre></td></tr></table></figure><p>顺利的话的话, 恭喜你<br>`Start blogging with hexo!</p><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>新建完成后, 指定文件夹内目录如下</p><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs undefined">.<br>├── _config.yml<br>├── package.json<br>├── scaffolds<br>├── source<br>|   ├── _drafts<br>|   └── _posts<br>└── themes<br></code></pre></td></tr></table></figure><h3 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h3><p>网站的配置信息, 你可以在这里选择配置大部分参数, 我们称为<code>站点配置文件</code>.</p><ul><li>可以设定主题, 网站标题, 副标题, author etc.</li></ul><h3 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h3><p>应用程序的信息. </p><h3 id="scaffolds"><a href="#scaffolds" class="headerlink" title="scaffolds"></a>scaffolds</h3><p>模板文件夹, Hexo会根据scaffolds来建立文件. Hexo的模板是指在新建的markdown文件中默认填充的内容. 例如, 如果您修改scaffold/post.md中的Front-matter内容, 那么每次新建一篇文章时都会包含这个修改.</p><h3 id="source"><a href="#source" class="headerlink" title="source"></a>source</h3><p>资源文件夹是存放用户资源的地方. 除_posts 文件夹之外, 开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略. Markdown 和 HTML 文件会被解析并放到 public 文件夹, 而其他文件会被拷贝过去. </p><ul><li>发布的博文存储在/public/</li></ul><h3 id="theme"><a href="#theme" class="headerlink" title="theme"></a>theme</h3><p>主题 文件夹。Hexo 会根据主题来生成静态页面。</p><ul><li>选择一个你喜欢的主题, it does matter.</li><li>主题内会有一个用来配置主题细节的<code>_config.yml</code>文件, 我们称为<code>主题配置文件</code></li></ul><h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><h3 id="init"><a href="#init" class="headerlink" title="init"></a>init</h3><p>$ hexo init [folder]<br>新建一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站。</p><h3 id="new"><a href="#new" class="headerlink" title="new"></a>new</h3><p>`$ hexo new [layout] <title><br>新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。</title></p><h3 id="generate"><a href="#generate" class="headerlink" title="generate"></a>generate</h3><p>`$ hexo generate<br>生成静态文件。</p><h3 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h3><p>`$ hexo deploy<br>-d, –deploy    文件生成后立即部署网站</p><p>$ hexo g<br>publish<br>$ hexo publish [layout] <filename><br>发表草稿。</filename></p><p>server<br>$ hexo server<br>启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/。" target="_blank" rel="noopener">http://localhost:4000/。</a></p><p>deploy<br>$ hexo deploy<br>部署网站。</p><p>-g, –generate    部署之前预先生成静态文件<br>该命令可以简写为：</p><p>$ hexo d<br>render<br>$ hexo render <file1> [file2] …<br>渲染文件。</file1></p><p>clean<br>$ hexo clean<br>清除缓存文件 (db.json) 和已生成的静态文件 (public)。</p><p>在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 施工中 </tag>
+            
+            <tag> 021 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Python爬虫（三）：从JSON解决Ajax</title>
+      <link href="/2018/12/07/Python%E7%88%AC%E8%99%AB%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E7%88%AC%E5%8F%96js%E5%8A%A8%E6%80%81%E7%BD%91%E9%A1%B5/"/>
+      <url>/2018/12/07/Python%E7%88%AC%E8%99%AB%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9A%E7%88%AC%E5%8F%96js%E5%8A%A8%E6%80%81%E7%BD%91%E9%A1%B5/</url>
+      
+        <content type="html"><![CDATA[<blockquote><ul><li>上一篇博文中, 笔者采用了selenium驱动chrome来抓取网页, 总结来看及其低效…..</li><li>想了一下, 不能这样搞, 他要刷新局部界面肯定是要利用JavaScript调用已经写好的json的. 通常来说不会有前端选择瞎搞地址. 如果能观察出那个json的地址特点, 就到了ButifulSoup为所欲为的时间辣(●’◡’●)</li><li>对于json参数偏移量不规律的网页,那当然是 <del>直接打死</del> ,哦不, <em>仔细观察</em>. 对于一个正常的前端同学来说, 不规律的json只可能是有限的, <del>我不做人啦,jojo!</del>. 我们只要把有限的偏移量写成一个字典(dic)就大功告成</li></ul></blockquote><a id="more"></a><h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><ul><li>Chrome浏览器</li><li>Python3.7</li><li>requests, BeautifulSoup4模块</li><li>一点点耐心以及正常的视力</li></ul><h2 id="流程分析"><a href="#流程分析" class="headerlink" title="流程分析"></a>流程分析</h2><ul><li>chrome浏览器打开目标网页, </li><li>检查元素   <del>F12, CTRL+ shift+i, CTRL+shift+c爱用那个用哪个</del></li><li>继续加载内容，注意观察network栏下的xhr文件</li></ul><p><img src="https://img-blog.csdnimg.cn/20181124234006384.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTAwOTQ4,size_16,color_FFFFFF,t_70" alt="图例"></p><ul><li>很明显，那个since=就是我们要找的<br>*点击展开，根据 Query string 构造parameter参数字典<br><img src="https://img-blog.csdnimg.cn/20181124234256796.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTAwOTQ4,size_16,color_FFFFFF,t_70" alt="图例2"></li><li>requests 负责请求，bs4 为所欲为</li></ul><h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs undefined"><br>json_url = &apos;https://富强民主文明和谐&apos;<br>#无规则偏移量，自行逆向分析得到偏移量字典<br>since_list = [26961.554, 26961.474, 26961.419, 26961.346]<br><br>#实现提取json，加载动态内容，但是封装性不好，不能重复利用<br>def getMorePages(list,count=1):<br><br>    params_list = []<br>    for i in range(count):<br>        keyword=str(list[i])<br>        params_list.append(&#123;<br>            &apos;since&apos;: keyword,<br>            &apos;grid_type&apos;: &apos;flow&apos;,<br>            &apos;sort&apos;: &apos;hot&apos;,<br>            &apos;tag_id&apos;: &apos;399&apos;,<br>        &#125;)<br>    url = json_url<br>    for i in params_list:<br>        req=requests.get(url, params=i).content<br>        soup=BeautifulSoup(req,&apos;lxml&apos;)<br>        getURL(soup)<br></code></pre></td></tr></table></figure><h2 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h2><p>很显然，这样做效率会高很多  <del>发现json规律成为了木桶的最短板</del>，为了避免那个网站被薅羊毛，我就手动屏蔽惹OTZ……<br>另外，代码也只放入了相关的一部分，有兴趣的同学可以尝试结合上一篇，整合功能鸭~<br>Good night！</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Web Crawler </tag>
+            
+            <tag> 实例 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>推歌：A LETTER</title>
+      <link href="/2018/12/03/%E6%AD%8C%E6%9B%B2%E6%8E%A8%E8%8D%90The-Song-For-You/"/>
+      <url>/2018/12/03/%E6%AD%8C%E6%9B%B2%E6%8E%A8%E8%8D%90The-Song-For-You/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://i.loli.net/2018/12/03/5c05272799b4b.jpg" alt="午夜"></p><blockquote class="centerquote"><i> You don’t have to throw your life away </i></blockquote><a id="more"></a><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=499027&auto=1&height=66"></iframe><p><em>本来也不想写文字，但是不写一点文字,又怎么知道当时所思所想是什么，自己又是为什么要去写这篇博文呢?</em></p><p>……</p><p> <em>A LETTER</em> 是由<a href="https://zh.moegirl.org/%E6%B3%BD%E9%87%8E%E5%BC%98%E4%B9%8B" target="_blank" rel="noopener">泽野弘之</a><br>创作的插曲——也许提及<em>高达UC</em>会让他更容易被想起.</p><p>歌姬Cyua确实很适合去唱这首歌, 她的声线与舒缓空旷的乐音彼此交融, 编织出这首弥漫着伤感, 空灵以及希望的歌曲. 倘若你愿意闭上双眸, 浮现出的场景大概会是独角兽在孤独地进行着只属于自己的宇宙漫途, 但或许你需要知道的是, 这首歌曲更多在表达的是对自己的鼓励和对未来的希冀.</p><p>每个人都是宇宙中的独角兽, 命运指定的航线终将我们彼此分离, 忙碌追赶又有什么意义呢？命运的轨迹充满了错误,  等待我们的会是痛苦, 遗憾, 还是……希望?</p><p>我曾颓废不堪, 终日浑噩无力挣脱是最真实的写照. 逼问自己的内心, 但它指向的答案却令我无比失望: 没有答案. 当然, 那不是真正的回应, <em>我一直在逃避</em>. </p><p>那么我真的在面对无可阻挡的事实吗? 懦弱的我, 懒惰的我, 不知进取的我, 他们终究不是我. 他们没有办法回答甚至无法直面这个问题——<em>于是我得到了答案</em>. </p><p>坦言事实的全部, 并不需要额外牺牲什么. 指向正确的道路或许很艰辛, 可是总有一天能够到达尽头. </p><p><em>Now you see light in pain.</em></p><p>Kevin 12.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 个人喜好 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Python爬虫（二）：Selenium + ChromeDriver 解决异步加载</title>
+      <link href="/2018/12/01/Python%E7%88%AC%E8%99%AB%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9ASelenium%20+%20ChromeDriver%20%E8%A7%A3%E5%86%B3%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD/"/>
+      <url>/2018/12/01/Python%E7%88%AC%E8%99%AB%EF%BC%88%E4%BA%8C%EF%BC%89%EF%BC%9ASelenium%20+%20ChromeDriver%20%E8%A7%A3%E5%86%B3%E5%BC%82%E6%AD%A5%E5%8A%A0%E8%BD%BD/</url>
+      
+        <content type="html"><![CDATA[<blockquote><ul><li>在上一篇博文中, python代码趋向于平铺直叙——或者说代码习惯十分不好, 稍微复杂点的功能都会举步维艰</li><li>对于选择使用js控制加载网页结构的网站, 以urllib为基础的python库来说无法<del>直接</del>解决这个问题，例如爬取下拉刷新的网页：”<a href="https://bcy.net/coser&quot;" target="_blank" rel="noopener">https://bcy.net/coser&quot;</a></li><li>但是事在人为, 对于笔者这个小白来说还是有<del>傻瓜式</del>替代解决思路的, 虽然很慢==</li></ul></blockquote><a id="more"></a><h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><ul><li>默认看过<a href="https://blog.csdn.net/qq_40900948/article/details/84305541" target="_blank" rel="noopener">Python爬虫（一）：Requests&amp;BS4 爬虫实例</a></li><li>预装模块: requests, selenium, bs4, os</li><li>下载<a href="http://npm.taobao.org/mirrors/chromedriver/" target="_blank" rel="noopener">chromedriver</a></li></ul><h2 id="流程分析"><a href="#流程分析" class="headerlink" title="流程分析"></a>流程分析</h2><ul><li>bs4+selenium+chromedriver <del>强行爆破</del> 模拟点击行为获取完全加载的html</li><li><del>然后用beautifulsoup为所欲为</del><h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2></li></ul><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><code class="hljs undefined"># coding=utf-8<br># **************************Declaration**************************<br># @File name:        Crawler<br># @Function:         requests+selenium+chromedriver<br># @Author:           Ogiso Kazusa<br># @Date:             2018/11/15<br># @Version Number:   2.0<br># ******************************end******************************<br><br>import requests<br>import os<br>from bs4 import BeautifulSoup<br>from selenium import webdriver<br><br>#常量<br>URL = &apos;https://bcy.net&apos;<br>index_url = &apos;https://bcy.net/coser&apos;<br>CachePath = &quot;D:\\CrawlerCache\\&quot;<br><br>#储存CN的键值对, 用于isInDic()<br>dic=&#123;&apos;test&apos;:0&#125;<br><br>#检查字典, 判断是否下载过<br>def isInDic(src):<br>    if src in dic:<br>        dic[src] = dic[src] + 1<br>    else:<br>        dic[src] = 0<br>    dst = src + &quot;_&quot; + str(dic[src])<br>    return dst<br><br><br>def mkdir(path):<br>    # 去除首位空格<br>    path = path.strip()<br>    # 去除尾部 \ 符号<br>    path = path.rstrip(&quot;\\&quot;)<br><br>    # 判断路径是否存在<br>    # 存在     True<br>    # 不存在   False<br>    isExists = os.path.exists(path)<br><br>    # 判断结果<br>    if not isExists:<br>        # 如果不存在则创建目录<br>        # 创建目录操作函数<br>        os.makedirs(path)<br>        print(path + &apos; 创建成功&apos;)<br>        return True<br>    else:<br>        # 如果目录存在则不创建，并提示目录已存在<br>        print(path + &apos; 目录已存在&apos;)<br>        return False<br><br><br># 实现图片下载功能<br>def downloadImg(url, name):<br>    # 请求url页面内容,此时页面为图床页面,只有图片内容<br>    url = requests.get(url)<br>    # 格式和下载位置<br><br>    path = CachePath + name + &quot;.jpg&quot;<br><br>    # 迭代器和生成器,实现下载<br>    with open(path, &apos;wb&apos;) as f:<br>        f.write(url.content)<br>        f.close()<br><br>#驱动chrome,获取加载完全的html<br>#木桶效应的最短板, 也是本次解决方案的致命点<br>def getJsHtml(URL, cosImg):<br>    driver = webdriver.Chrome()<br>    driver.get(URL)<br>    html = driver.page_source<br>    driver.close()<br><br>    soup = BeautifulSoup(html, &apos;lxml&apos;)<br>    content = soup.find_all(&apos;div&apos;, &#123;&quot;class&quot;: &quot;img-wrap-inner&quot;&#125;)<br>    i = 1<br>    for element in content:<br>        src = element.find(&apos;img&apos;)[&apos;src&apos;]<br><br>        name=cosImg + &apos;_&apos; + str(i)<br>        downloadImg(src, name)<br>        print(&quot;下载进度：&quot;,i)<br>        i = i + 1<br><br><br># 确定存储目录CachePath,没有则生成<br>mkdir(CachePath)<br><br># 请求页面内容<br>session = requests.get(index_url)  <br><br># 获取requests 对象的内容，建议使用content，requests会尝试提供字节数<br>soup = BeautifulSoup(session.content, &quot;lxml&quot;)  <br><br># find 直接返回值, findall 返回列表(list)<br>index = soup.find_all(&apos;a&apos;, &#123;&apos;class&apos;: &quot;db posr ovf&quot;&#125;)<br><br>for element in index:<br>    # print(element)可以看到<br>    # 利用标签的父子关系，能够选择标签或者子标签中的属性值<br><br>    # 我们获取cos发布地址<br>    img_url = element[&apos;href&apos;]<br>    url = URL + img_url<br><br>    # CN = element.get(&apos;title&apos;)貌似两种写法均可<br>    CN = element[&apos;title&apos;]<br>    print(&apos;准备下载：&apos; + CN)<br>    CN = isInDic(CN)<br>    getJsHtml(url, CN)<br><br>#大功告成<br>#可以考虑指定需要获取的json？<br></code></pre></td></tr></table></figure><h2 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h2><ul><li>吐槽一下, 这玩意儿奇慢无比, 调用浏览器中出现了大量不必要的步骤==</li><li>另一种意义上的模拟人类点击机制, <del>慢也有点用?</del>,效率实在太低</li><li>令人头皮发麻，</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Web Crawler </tag>
+            
+            <tag> 实例 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Python爬虫（一）:Requests&amp;BS4 爬虫实例</title>
+      <link href="/2018/12/01/Python%E7%88%AC%E8%99%AB%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9ARequests&amp;BS4%20%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8B/"/>
+      <url>/2018/12/01/Python%E7%88%AC%E8%99%AB%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9ARequests&amp;BS4%20%E7%88%AC%E8%99%AB%E5%AE%9E%E4%BE%8B/</url>
+      
+        <content type="html"><![CDATA[<blockquote><ul><li>这篇文章主要是方便入门爬虫的同学获得入门的正反馈，配合代码注释可能轻松<del>愉悦</del>的对爬虫有个大概了解~</li><li>我们选择对于使用静态网页的小说网站, 小说的文本内容往往分配在一个&lt;div里,  <strong>逻辑比较简单</strong>. </li><li>那就开始吧＜（＾－＾）＞</li></ul></blockquote><a id="more"></a><h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><ul><li>安装python3.7<a href="笔者环境：pycharm+python3.7">^1</a></li><li>安装requests, BeautifulSoup4(或者说bs4)</li><li>安装chrome浏览器</li><li>掌握Python基础语法[^2] </li></ul><p>[^2]: 可以尝试 <a href="http://www.runoob.com/python3/python3-tutorial.html" target="_blank" rel="noopener">菜鸟教程-Python 3 教程</a> </p><h2 id="流程分析"><a href="#流程分析" class="headerlink" title="流程分析"></a>流程分析</h2><ul><li>请求URL指向的页面-&gt;获取网页内容</li><li>设定筛选条件-&gt;获取指定内容</li><li>写入本地文件</li></ul><h2 id="检查网站代码"><a href="#检查网站代码" class="headerlink" title="检查网站代码"></a>检查网站代码</h2><ul><li><strong>ctrl +shift +c</strong>, 检查网页源代码[^3], 得知章节地址</li><li><del><em>F12</em></del>, <del><em>ctrl+shift+i</em></del> , <del><em>右键-检查</em></del>, 等等均可</li><li>[^3]:本教程仅供参考, 保护创作者版权, 提倡付费阅读</li></ul><ul><li><p>根据章节地址跳转页面</p></li><li><p>检查章节页面, 得知章节文本内容 </p></li></ul><h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><code class="hljs undefined"># coding=utf-8<br># *********************Declaration*********************<br># @File name:        WebCrawler<br># @Function:         Download Single Novel<br># @Author:           Ogiso Kazusa                    <br># @Date:             2018/11/14                      <br># @Version Number:   1.0    <br># *************************end*************************<br><br>#导入模块<br>import requests<br>from bs4 import BeautifulSoup<br><br>#小说网页目录地址, 准备遍历全部章节地址<br>index_url=&apos;https://www.88dush.com/xiaoshuo/27/27584/&apos;<br><br>#获取页面内容<br>index_req=requests.get(index_url)<br>index_html=index_req.content<br>page_main=BeautifulSoup(index_html,&quot;lxml&quot;)<br><br>#创建D盘根目录文件“单本下载.txt”，<br>#格式为ab+:向二进制文件末添加数据，且允许读；<br>fo=open(&quot;D:\\单本下载.txt&quot;,&quot;ab+&quot;)<br><br>#获取div , class=&quot;mulu&quot; 包含的内容<br>chap_BS=page_main.find(&quot;div&quot;,&#123;&quot;class&quot;:&quot;mulu&quot;&#125;)<br><br>#生成器对象<br>for child in chap_BS.ul.children:<br>    if child!=&quot;\n&quot;:<br>        #href：目标url的属性名<br>        chap_url=index_url+child.a.get(&quot;href&quot;)<br><br>        #素质三联，获取lxml文档<br>        chap_req=requests.get(chap_url)<br>        chap_html=chap_req.content.decode(&quot;gbk&quot;)<br>        soup_text=BeautifulSoup(chap_html,&quot;lxml&quot;)<br><br>        #寻找div段落，class=yd_text2的属性块内容<br>        chap_text=soup_text.find(&quot;div&quot;，&#123;&quot;class&quot;:&quot;yd_text2&quot;&#125;)<br><br>        #.text指获取文字内容，\r\n是指写入文件中的换行符, ==<br>        fo.write((child.string+ &quot;\r\n&quot;+chap_text.text+&quot;\r\n&quot;).encode(&apos;utf-8&apos;))<br>        print(child.string+&apos;\t已下载&apos;)<br>        <br>fo.close()<br></code></pre></td></tr></table></figure><h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>Enjoy it !</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Web Crawler </tag>
+            
+            <tag> 实例 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>A Whisper To The World</title>
+      <link href="/2018/12/01/A-Whisper-To-The-World/"/>
+      <url>/2018/12/01/A-Whisper-To-The-World/</url>
+      
+        <content type="html"><![CDATA[<p><img src="https://i.loli.net/2018/12/01/5c017a914a980.jpg" alt="Nier"></p><blockquote class="centerquote"><i> NieR:Automata </i></blockquote><blockquote><p>Everything that lives is designed to end.<br>一切活着的事物，都注定要终结。<br>We are perpetually trapped …<br>我们被永远地囚禁……<br>… in a never-ending spiral of life and death.<br>……于永无止境的生死轮回之中。<br>Is this a curse?<br>这是一种诅咒？<br>Or some kind of punishment?<br>还是某种惩罚？<br>I often think about the god who blessed us with this cryptic puzzle …<br>我时常想起那用模糊的谜团祝福我们的神……<br>… and wonder if we’ll ever have the chance to kill him.<br>……并猜想我们是否终有弑神的机会。  </p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Ridiculous </tag>
+            
+            <tag> Thought </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2018/11/30/hello-world/"/>
+      <url>/2018/11/30/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><a id="more"></a><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">"My New Post"</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="hljs highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> hello </tag>
+            
+        </tags>
+      
+    </entry>
+    
+  
+  
+</search>
