@@ -101,18 +101,18 @@
       
     </div>
     <nav id="nav" class="nav">
-      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="切换导航栏"></i></a>
+      <a id="nav-toggle" class="nav-toggle" aria-hidden="true"><i class="fas fa-bars" aria-label="Toggle Navbar"></i></a>
       <ul id="menu" role="menubar" aria-hidden="false">
         
-        <li role="menuitem"><a href="/">首页</a></li>
+        <li role="menuitem"><a href="/">Home</a></li>
         
-        <li role="menuitem"><a href="/archives/">归档</a></li>
+        <li role="menuitem"><a href="/archives/">Archives</a></li>
         
-        <li role="menuitem"><a href="/categories/">分类</a></li>
+        <li role="menuitem"><a href="/categories/">Categories</a></li>
         
-        <li role="menuitem"><a href="/tags/">标签</a></li>
+        <li role="menuitem"><a href="/tags/">Tags</a></li>
         
-        <li role="menuitem"><a href="/about/">关于</a></li>
+        <li role="menuitem"><a href="/about/">About</a></li>
         
       </ul>
     </nav>
@@ -221,7 +221,7 @@
 <h4 id="init"><a href="#init" class="headerlink" title="init"></a>init</h4><pre><code>$ hexo init [folder]
 </code></pre><p>新建一个网站。如果没有设置 folder , Hexo 默认在目前的文件夹建立网站. </p>
 <h4 id="new"><a href="#new" class="headerlink" title="new"></a>new</h4><pre><code>$ hexo new [layout] &lt;title&gt;
-$ hexo n &quot;new article&quot;
+$ hexo n &quot;article&quot;
 </code></pre><p>新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。</p>
 <h4 id="generate"><a href="#generate" class="headerlink" title="generate"></a>generate</h4><pre><code>$ hexo generate
 $ hexo g
@@ -233,11 +233,20 @@ $ hexo d
 $ hexo g
 </code></pre><h4 id="server"><a href="#server" class="headerlink" title="server"></a>server</h4><pre><code>$ hexo server
 $ hexo s
-</code></pre><p>启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> . 如果需要修改,<br>    $ hexo sever -p 5000 #更改端口至5000</p>
+</code></pre><p>启动服务器。默认情况下，访问网址为： <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> . 如果需要修改,<br>​    $ hexo sever -p 5000 #更改端口至5000</p>
 <h4 id="clean"><a href="#clean" class="headerlink" title="clean"></a>clean</h4><pre><code>$ hexo clean
 </code></pre><p>清除缓存文件 (db.json) 和已生成的静态文件 (public)。<br>在某些情况（尤其是更换主题后）, 如果发现您对站点的更改无论如何也不生效, 您可能需要运行该命令.</p>
 <h3 id="发布网站"><a href="#发布网站" class="headerlink" title="发布网站"></a>发布网站</h3><p>如果你已经迫不及待地打开在hexo 目录下打开Git bash<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs undefined">hexo g<br>hexo s<br></code></pre></td></tr></table></figure></p>
-<p>在<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 你将预览到自己的博客, 但是别人是看不到的, 毕竟一般情况下别人不能看到你的计算机的本地内容.<br><strong>Github pages</strong>可以帮助我们解决这个问题,</p>
+<p>在<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 你将预览到自己的博客, 但是别人是看不到的, 毕竟一般情况下别人不能看到你的计算机的本地内容. <strong>Github pages</strong>可以帮助我们解决这个问题. </p>
+<p>下一步把GitHub和我们的Hexo关联起来, 打开站点的_config.yml, 找到<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs undefined">deploy: <br>  type: <br>  repo: <br>  branch:<br></code></pre></td></tr></table></figure></p>
+<p>修改如下:<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs undefined">deploy:<br>  type: git<br>  #创建仓库的完整路径, 末尾记得加.git<br>  repo: https://github.com/Magnesium12/magnesium12.github.io.git <br>  branch: master<br></code></pre></td></tr></table></figure></p>
+<blockquote>
+<p>其实就是给hexo d 这个命令做相应的配置，让hexo知道你要把blog部署在哪个位置，很显然，我们部署在我们GitHub的仓库里。<br>最后安装Git部署插件, 输入命令:</p>
+</blockquote>
+<pre><code>npm install hexo-deployer-git --save
+</code></pre><p>现在我们输入:<br><figure class="hljs highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs undefined">hexo clean<br>hexo g<br>hexo d<br></code></pre></td></tr></table></figure></p>
+<p>在浏览器中输入: xxxx. github.io</p>
+<p>你会发现这时你的博客已经上线, Congratulations! Sharing your fantasy to the world. </p>
 <h2 id="Hexo-进阶"><a href="#Hexo-进阶" class="headerlink" title="Hexo 进阶"></a>Hexo 进阶</h2><p><strong>未完待续</strong></p>
 
     </main>
@@ -277,7 +286,7 @@ $ hexo s
   
   <div class="search">
     <div class="form-group">
-      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="搜索" class="form-control">
+      <i class="fas fa-search"></i><input type="search" id="search-input" name="q" results="0" placeholder="Search" class="form-control">
     </div>
   </div>
   <div class="search-result-box" id="search-result"></div>
@@ -292,7 +301,7 @@ $ hexo s
   <div class="site-count">
     
     <div class="archives-count">
-      <div class="site-count-title">归档</div>
+      <div class="site-count-title">Archives</div>
       <div><a href="/archives/">7</a></div>
     </div>
     
@@ -301,7 +310,7 @@ $ hexo s
     <span class="site-count-divider divider">|</span>
     
     <div class="categories-count">
-      <div class="site-count-title">分类</div>
+      <div class="site-count-title">Categories</div>
       <div><a href="/categories/">3</a></div>
     </div>
     
@@ -310,7 +319,7 @@ $ hexo s
     <span class="site-count-divider divider">|</span>
     
     <div class="tags-count">
-      <div class="site-count-title">标签</div>
+      <div class="site-count-title">Tags</div>
       <div><a href="/tags/">8</a></div>
     </div>
     
@@ -331,7 +340,7 @@ $ hexo s
     
     <hr>
     <div class="post-toc sidebar-item" id="toc-div">
-      <div><i class="fas fa-list-ol"></i>文章目录</div>
+      <div><i class="fas fa-list-ol"></i>Table of Contents</div>
       <div class="post-toc-content"><ol class="list-group toc"><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Hexo基础"><span class="toc-text">Hexo基础</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#GitHub"><span class="toc-text">GitHub</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#安装Git-amp-Node-js"><span class="toc-text">安装Git&amp;Node.js</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#配置SSH免密访问"><span class="toc-text">配置SSH免密访问</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#建站"><span class="toc-text">建站</span></a></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#站点结构"><span class="toc-text">站点结构</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#config-yml"><span class="toc-text">_config.yml</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#package-json"><span class="toc-text">package.json</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#scaffolds"><span class="toc-text">scaffolds</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#source"><span class="toc-text">source</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#theme"><span class="toc-text">theme</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#Hexo常用指令"><span class="toc-text">Hexo常用指令</span></a><ol class="list-group toc-child"><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#init"><span class="toc-text">init</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#new"><span class="toc-text">new</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#generate"><span class="toc-text">generate</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#deploy"><span class="toc-text">deploy</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#generate-1"><span class="toc-text">generate</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#server"><span class="toc-text">server</span></a></li><li class="toc-item toc-level-4"><a class="list-group-item toc-link" href="#clean"><span class="toc-text">clean</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="list-group-item toc-link" href="#发布网站"><span class="toc-text">发布网站</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="list-group-item toc-link" href="#Hexo-进阶"><span class="toc-text">Hexo 进阶</span></a></li></ol></div>
     </div>
     
@@ -339,7 +348,7 @@ $ hexo s
     
     <hr>
     <div class="social-link sidebar-item">
-      <div><i class="far fa-address-card"></i>社交链接<p></p></div>
+      <div><i class="far fa-address-card"></i>Social Links<p></p></div>
       <ul>
         
         <li><i class="fas fa-envelope"></i><a href="mailto:137758930@qq.com" target="_blank">E-Mail</a></li>
@@ -352,7 +361,7 @@ $ hexo s
     
     <hr>
     <div class="blogroll sidebar-item">
-      <div><i class="fas fa-link"></i>友情链接</div>
+      <div><i class="fas fa-link"></i>Blogroll</div>
       <ul>
         
         <li><i class="fas fa-link"></i><a href="https://github.com/" target="_blank">GitHub</a></li>
@@ -376,7 +385,7 @@ $ hexo s
 <footer id="footer" class="footer" style="background: #33363b;">
   <div class="container">
     <div class="back-to-top">
-      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="回到顶部"></i></button>
+      <button id="back-to-top"><i class="fas fa-angle-double-up" aria-label="Back to Top"></i></button>
     </div>
     <div class="footer-container">
       <div class="footer-left">
@@ -385,7 +394,7 @@ $ hexo s
         </div>
         
         <div class="busuanzi">
-          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="站点点击量" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="站点用户数" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="页面点击量" aria-hidden="false"></span></span>
+          <span id="busuanzi_container_site_pv"><i class="fas fa-eye" aria-label="Site Visit Count" aria-hidden="false"></i><span id="busuanzi_value_site_pv"></span></span><span id="busuanzi_container_site_uv"><i class="fas fa-user" aria-label="Site User Count" aria-hidden="false"></i><span id="busuanzi_value_site_uv"></span></span><span id="busuanzi_container_page_pv"><i class="far fa-file-alt"></i><span id="busuanzi_value_page_pv" aria-label="Page Click Count" aria-hidden="false"></span></span>
         </div>
         
       </div>
@@ -396,7 +405,7 @@ $ hexo s
           
         </div>
         <div class="powered-by">
-          由 <a href="https://hexo.io/" target="_blank">Hexo</a> 强力驱动 | 主题 <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
+          Proudly Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> | Theme is <a href="https://github.com/AlynxZhou/hexo-theme-aria/" target="_blank">ARIA</a>
         </div>
       </div>
     </div>
