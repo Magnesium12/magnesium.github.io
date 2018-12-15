@@ -104,6 +104,20 @@
 
 
 
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://zlee.xyz"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
   <meta name="description" content="上一篇博文中, 笔者采用了selenium驱动chrome来抓取网页, 总结来看及其低效….. 想了一下, 不能这样搞, 他要刷新局部界面肯定是要利用JavaScript调用已经写好的json的. 通常来说不会有前端选择瞎搞地址. 如果能观察出那个json的地址特点, 就到了ButifulSoup为所欲为的时间辣(●’◡’●) 对于json参数偏移量不规律的网页,那当然是 直接打死 ,哦不,">
 <meta name="keywords" content="Web Crawler,实例">
 <meta property="og:type" content="article">
@@ -114,7 +128,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20181124234006384.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTAwOTQ4,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20181124234256796.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTAwOTQ4,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2018-12-14T08:43:46.959Z">
+<meta property="og:updated_time" content="2018-12-15T16:09:05.505Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python爬虫（三）：从JSON解决Ajax">
 <meta name="twitter:description" content="上一篇博文中, 笔者采用了selenium驱动chrome来抓取网页, 总结来看及其低效….. 想了一下, 不能这样搞, 他要刷新局部界面肯定是要利用JavaScript调用已经写好的json的. 通常来说不会有前端选择瞎搞地址. 如果能观察出那个json的地址特点, 就到了ButifulSoup为所欲为的时间辣(●’◡’●) 对于json参数偏移量不规律的网页,那当然是 直接打死 ,哦不,">
@@ -447,7 +461,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-14 16:43:46" itemprop="dateModified" datetime="2018-12-14T16:43:46+08:00">2018-12-14</time>
+                <time title="修改时间：2018-12-16 00:09:05" itemprop="dateModified" datetime="2018-12-16T00:09:05+08:00">2018-12-16</time>
               
             
           </span>
@@ -473,6 +487,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/07/Python爬虫（三）：爬取js动态网页/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/12/07/Python爬虫（三）：爬取js动态网页/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -529,7 +553,7 @@
 <li>很明显，那个since=就是我们要找的<br>*点击展开，根据 Query string 构造parameter参数字典<br><img src="https://img-blog.csdnimg.cn/20181124234256796.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTAwOTQ4,size_16,color_FFFFFF,t_70" alt="图例2"></li>
 <li>requests 负责请求，bs4 为所欲为</li>
 </ul>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">json_url = <span class="string">'https://富强民主文明和谐'</span></span><br><span class="line"><span class="meta">#无规则偏移量，自行逆向分析得到偏移量字典</span></span><br><span class="line">since_list = [<span class="number">26961.554</span>, <span class="number">26961.474</span>, <span class="number">26961.419</span>, <span class="number">26961.346</span>]</span><br><span class="line"></span><br><span class="line"><span class="meta">#实现提取json，加载动态内容，但是封装性不好，不能重复利用</span></span><br><span class="line"><span class="function">def <span class="title">getMorePages</span>(<span class="params">list,count=<span class="number">1</span></span>):</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">    params_list</span> = []</span><br><span class="line">    <span class="function"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="title">range</span>(<span class="params">count</span>):</span></span><br><span class="line"><span class="function">        keyword</span>=str(list[i])</span><br><span class="line">        params_list.append(&#123;</span><br><span class="line">            <span class="string">'since'</span>: keyword,</span><br><span class="line">            <span class="string">'grid_type'</span>: <span class="string">'flow'</span>,</span><br><span class="line">            <span class="string">'sort'</span>: <span class="string">'hot'</span>,</span><br><span class="line">            <span class="string">'tag_id'</span>: <span class="string">'399'</span>,</span><br><span class="line">        &#125;)</span><br><span class="line">    url = json_url</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> params_list:</span><br><span class="line">        req=requests.<span class="keyword">get</span>(url, <span class="keyword">params</span>=i).content</span><br><span class="line">        soup=BeautifulSoup(req,<span class="string">'lxml'</span>)</span><br><span class="line">        getURL(soup)</span><br></pre></td></tr></table></figure>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CS"><figure class="iseeu highlight /cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">json_url = <span class="string">'https://富强民主文明和谐'</span></span><br><span class="line"><span class="meta">#无规则偏移量，自行逆向分析得到偏移量字典</span></span><br><span class="line">since_list = [<span class="number">26961.554</span>, <span class="number">26961.474</span>, <span class="number">26961.419</span>, <span class="number">26961.346</span>]</span><br><span class="line"></span><br><span class="line"><span class="meta">#实现提取json，加载动态内容，但是封装性不好，不能重复利用</span></span><br><span class="line"><span class="function">def <span class="title">getMorePages</span>(<span class="params">list,count=<span class="number">1</span></span>):</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">    params_list</span> = []</span><br><span class="line">    <span class="function"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="title">range</span>(<span class="params">count</span>):</span></span><br><span class="line"><span class="function">        keyword</span>=str(list[i])</span><br><span class="line">        params_list.append(&#123;</span><br><span class="line">            <span class="string">'since'</span>: keyword,</span><br><span class="line">            <span class="string">'grid_type'</span>: <span class="string">'flow'</span>,</span><br><span class="line">            <span class="string">'sort'</span>: <span class="string">'hot'</span>,</span><br><span class="line">            <span class="string">'tag_id'</span>: <span class="string">'399'</span>,</span><br><span class="line">        &#125;)</span><br><span class="line">    url = json_url</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> params_list:</span><br><span class="line">        req=requests.<span class="keyword">get</span>(url, <span class="keyword">params</span>=i).content</span><br><span class="line">        soup=BeautifulSoup(req,<span class="string">'lxml'</span>)</span><br><span class="line">        getURL(soup)</span><br></pre></td></tr></table></figure></div>
 <h2 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h2><p>很显然，这样做效率会高很多  <del>发现json规律成为了木桶的最短板</del>，为了避免那个网站被薅羊毛，我就手动屏蔽惹OTZ……<br>另外，代码只放入了相关的一部分，有兴趣的同学可以尝试结合上一篇，整合功能鸭~<br>Good night！</p>
 
       
@@ -627,6 +651,10 @@
           
 
   
+    <div class="comments" id="comments">
+    </div>
+
+  
 
 
 
@@ -678,7 +706,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -732,7 +760,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -822,7 +852,7 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+    <i class="fas fa-igloo"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Kevin Lee</span>
 
@@ -831,6 +861,7 @@
   
 </div>
 
+<!--
 
 
 
@@ -840,7 +871,7 @@
 
 
 
-
+-->
         
 <div class="busuanzi-count">
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -989,6 +1020,31 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'x4lOcdsdVkTSt1OtDHFr4ndU-gzGzoHsz',
+        appKey: 'xL8w3KEKkqlzxOMdCfO6oRvV',
+        placeholder: '有什么想说的吗?',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
 
 
 
@@ -1359,77 +1415,8 @@
   
 
   
-  <style>
-    .copy-btn {
-      display: inline-block;
-      padding: 6px 12px;
-      font-size: 13px;
-      font-weight: 700;
-      line-height: 20px;
-      color: #333;
-      white-space: nowrap;
-      vertical-align: middle;
-      cursor: pointer;
-      background-color: #eee;
-      background-image: linear-gradient(#fcfcfc, #eee);
-      border: 1px solid #d5d5d5;
-      border-radius: 3px;
-      user-select: none;
-      outline: 0;
-    }
-
-    .highlight-wrap .copy-btn {
-      transition: opacity .3s ease-in-out;
-      opacity: 0;
-      padding: 2px 6px;
-      position: absolute;
-      right: 4px;
-      top: 8px;
-    }
-
-    .highlight-wrap:hover .copy-btn,
-    .highlight-wrap .copy-btn:focus {
-      opacity: 1
-    }
-
-    .highlight-wrap {
-      position: relative;
-    }
-  </style>
-  <script>
-    $('.highlight').each(function (i, e) {
-      var $wrap = $('<div>').addClass('highlight-wrap')
-      $(e).after($wrap)
-      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
-        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
-          return $(e).text()
-        }).toArray().join('\n')
-        var ta = document.createElement('textarea')
-        document.body.appendChild(ta)
-        ta.style.position = 'absolute'
-        ta.style.top = '0px'
-        ta.style.left = '0px'
-        ta.value = code
-        ta.select()
-        ta.focus()
-        var result = document.execCommand('copy')
-        document.body.removeChild(ta)
-        
-          if(result)$(this).text('复制成功')
-          else $(this).text('复制失败')
-        
-        $(this).blur()
-      })).on('mouseleave', function (e) {
-        var $b = $(this).find('.copy-btn')
-        setTimeout(function () {
-          $b.text('复制')
-        }, 300)
-      }).append(e)
-    })
-  </script>
-
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"superSample":1.5,"width":150,"height":300,"position":"left","hOffset":15,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
 </html>

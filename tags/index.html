@@ -104,6 +104,20 @@
 
 
 
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://zlee.xyz"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
   <meta name="description" content="Everything that lives is designed to end.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="tags">
@@ -458,10 +472,14 @@
                     
                   
                 
-                目前共计 10 个标签
+                  
+                    
+                  
+                
+                目前共计 11 个标签
             </div>
             <div class="tag-cloud-tags">
-              <a href="/tags/021/" style="font-size: 12px; color: #ccc">021</a> <a href="/tags/Ridiculous/" style="font-size: 12px; color: #ccc">Ridiculous</a> <a href="/tags/Thought/" style="font-size: 12px; color: #ccc">Thought</a> <a href="/tags/Web-Crawler/" style="font-size: 30px; color: #111">Web Crawler</a> <a href="/tags/hello/" style="font-size: 12px; color: #ccc">hello</a> <a href="/tags/实例/" style="font-size: 30px; color: #111">实例</a> <a href="/tags/施工中/" style="font-size: 12px; color: #ccc">施工中</a> <a href="/tags/私货/" style="font-size: 12px; color: #ccc">私货</a> <a href="/tags/自学OTZ/" style="font-size: 12px; color: #ccc">自学OTZ</a> <a href="/tags/课程笔记/" style="font-size: 12px; color: #ccc">课程笔记</a>
+              <a href="/tags/021/" style="font-size: 12px; color: #ccc">021</a> <a href="/tags/Ridiculous/" style="font-size: 12px; color: #ccc">Ridiculous</a> <a href="/tags/Thought/" style="font-size: 12px; color: #ccc">Thought</a> <a href="/tags/Web-Crawler/" style="font-size: 30px; color: #111">Web Crawler</a> <a href="/tags/hello/" style="font-size: 12px; color: #ccc">hello</a> <a href="/tags/一时兴起/" style="font-size: 12px; color: #ccc">一时兴起</a> <a href="/tags/实例/" style="font-size: 30px; color: #111">实例</a> <a href="/tags/施工中/" style="font-size: 21px; color: #6f6f6f">施工中</a> <a href="/tags/私货/" style="font-size: 12px; color: #ccc">私货</a> <a href="/tags/自学OTZ/" style="font-size: 12px; color: #ccc">自学OTZ</a> <a href="/tags/课程笔记/" style="font-size: 12px; color: #ccc">课程笔记</a>
             </div>
           </div>
         
@@ -482,6 +500,10 @@
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+    </div>
 
   
 
@@ -526,7 +548,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -580,7 +602,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -654,7 +678,7 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+    <i class="fas fa-igloo"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Kevin Lee</span>
 
@@ -663,6 +687,7 @@
   
 </div>
 
+<!--
 
 
 
@@ -672,7 +697,7 @@
 
 
 
-
+-->
         
 <div class="busuanzi-count">
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -821,6 +846,31 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'x4lOcdsdVkTSt1OtDHFr4ndU-gzGzoHsz',
+        appKey: 'xL8w3KEKkqlzxOMdCfO6oRvV',
+        placeholder: '有什么想说的吗?',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
 
 
 
@@ -1191,77 +1241,8 @@
   
 
   
-  <style>
-    .copy-btn {
-      display: inline-block;
-      padding: 6px 12px;
-      font-size: 13px;
-      font-weight: 700;
-      line-height: 20px;
-      color: #333;
-      white-space: nowrap;
-      vertical-align: middle;
-      cursor: pointer;
-      background-color: #eee;
-      background-image: linear-gradient(#fcfcfc, #eee);
-      border: 1px solid #d5d5d5;
-      border-radius: 3px;
-      user-select: none;
-      outline: 0;
-    }
-
-    .highlight-wrap .copy-btn {
-      transition: opacity .3s ease-in-out;
-      opacity: 0;
-      padding: 2px 6px;
-      position: absolute;
-      right: 4px;
-      top: 8px;
-    }
-
-    .highlight-wrap:hover .copy-btn,
-    .highlight-wrap .copy-btn:focus {
-      opacity: 1
-    }
-
-    .highlight-wrap {
-      position: relative;
-    }
-  </style>
-  <script>
-    $('.highlight').each(function (i, e) {
-      var $wrap = $('<div>').addClass('highlight-wrap')
-      $(e).after($wrap)
-      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
-        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
-          return $(e).text()
-        }).toArray().join('\n')
-        var ta = document.createElement('textarea')
-        document.body.appendChild(ta)
-        ta.style.position = 'absolute'
-        ta.style.top = '0px'
-        ta.style.left = '0px'
-        ta.value = code
-        ta.select()
-        ta.focus()
-        var result = document.execCommand('copy')
-        document.body.removeChild(ta)
-        
-          if(result)$(this).text('复制成功')
-          else $(this).text('复制失败')
-        
-        $(this).blur()
-      })).on('mouseleave', function (e) {
-        var $b = $(this).find('.copy-btn')
-        setTimeout(function () {
-          $b.text('复制')
-        }, 300)
-      }).append(e)
-    })
-  </script>
-
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"superSample":1.5,"width":150,"height":300,"position":"left","hOffset":15,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
 </html>

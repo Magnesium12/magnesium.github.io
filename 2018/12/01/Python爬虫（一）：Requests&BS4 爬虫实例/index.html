@@ -104,6 +104,20 @@
 
 
 
+<script>
+    (function () {
+        if ('') {
+            if (prompt('请输入文章密码') !== '') {
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("http://zlee.xyz"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
   <meta name="description" content="这篇文章主要是方便入门爬虫的同学获得入门的正反馈，配合代码注释可能轻松愉悦的对爬虫有个大概了解~ 我们选择对于使用静态网页的小说网站, 小说的文本内容往往分配在一个&amp;lt;div里,  逻辑比较简单.  那就开始吧＜（＾－＾）＞">
 <meta name="keywords" content="Web Crawler,实例">
 <meta property="og:type" content="article">
@@ -471,6 +485,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/01/Python爬虫（一）：Requests&BS4 爬虫实例/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/12/01/Python爬虫（一）：Requests&BS4 爬虫实例/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -532,7 +556,7 @@
 <li><p>检查章节页面, 得知章节文本内容 </p>
 </li>
 </ul>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># coding=utf-8</span></span><br><span class="line"><span class="meta"># *********************Declaration*********************</span></span><br><span class="line"><span class="meta"># @File name:        WebCrawler</span></span><br><span class="line"><span class="meta"># @Function:         Download Single Novel</span></span><br><span class="line"><span class="meta"># @Author:           Ogiso Kazusa                    </span></span><br><span class="line"><span class="meta"># @Date:             2018/11/14                      </span></span><br><span class="line"><span class="meta"># @Version Number:   1.0    </span></span><br><span class="line"><span class="meta"># *************************end*************************</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#导入模块</span></span><br><span class="line">import requests</span><br><span class="line"><span class="keyword">from</span> bs4 import BeautifulSoup</span><br><span class="line"></span><br><span class="line"><span class="meta">#小说网页目录地址, 准备遍历全部章节地址</span></span><br><span class="line">index_url=<span class="string">'https://www.88dush.com/xiaoshuo/27/27584/'</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#获取页面内容</span></span><br><span class="line">index_req=requests.<span class="keyword">get</span>(index_url)</span><br><span class="line">index_html=index_req.content</span><br><span class="line">page_main=BeautifulSoup(index_html,<span class="string">"lxml"</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">#创建D盘根目录文件“单本下载.txt”，</span></span><br><span class="line"><span class="meta">#格式为ab+:向二进制文件末添加数据，且允许读；</span></span><br><span class="line">fo=open(<span class="string">"D:\\单本下载.txt"</span>,<span class="string">"ab+"</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">#获取div , class="mulu" 包含的内容</span></span><br><span class="line">chap_BS=page_main.find(<span class="string">"div"</span>,&#123;<span class="string">"class"</span>:<span class="string">"mulu"</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="meta">#生成器对象</span></span><br><span class="line"><span class="keyword">for</span> child <span class="keyword">in</span> chap_BS.ul.children:</span><br><span class="line">    <span class="keyword">if</span> child!=<span class="string">"\n"</span>:</span><br><span class="line">        <span class="meta">#href：目标url的属性名</span></span><br><span class="line">        chap_url=index_url+child.a.<span class="keyword">get</span>(<span class="string">"href"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="meta">#素质三联，获取lxml文档</span></span><br><span class="line">        chap_req=requests.<span class="keyword">get</span>(chap_url)</span><br><span class="line">        chap_html=chap_req.content.decode(<span class="string">"gbk"</span>)</span><br><span class="line">        soup_text=BeautifulSoup(chap_html,<span class="string">"lxml"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="meta">#寻找div段落，class=yd_text2的属性块内容</span></span><br><span class="line">        chap_text=soup_text.find(<span class="string">"div"</span>，&#123;<span class="string">"class"</span>:<span class="string">"yd_text2"</span>&#125;)</span><br><span class="line"></span><br><span class="line">        <span class="meta">#.text指获取文字内容，\r\n是指写入文件中的换行符, ==</span></span><br><span class="line">        fo.write((child.<span class="keyword">string</span>+ <span class="string">"\r\n"</span>+chap_text.text+<span class="string">"\r\n"</span>).encode(<span class="string">'utf-8'</span>))</span><br><span class="line">        print(child.<span class="keyword">string</span>+<span class="string">'\t已下载'</span>)</span><br><span class="line">        </span><br><span class="line">fo.close()</span><br></pre></td></tr></table></figure>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CS"><figure class="iseeu highlight /cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># coding=utf-8</span></span><br><span class="line"><span class="meta"># *********************Declaration*********************</span></span><br><span class="line"><span class="meta"># @File name:        WebCrawler</span></span><br><span class="line"><span class="meta"># @Function:         Download Single Novel</span></span><br><span class="line"><span class="meta"># @Author:           Ogiso Kazusa                    </span></span><br><span class="line"><span class="meta"># @Date:             2018/11/14                      </span></span><br><span class="line"><span class="meta"># @Version Number:   1.0    </span></span><br><span class="line"><span class="meta"># *************************end*************************</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#导入模块</span></span><br><span class="line">import requests</span><br><span class="line"><span class="keyword">from</span> bs4 import BeautifulSoup</span><br><span class="line"></span><br><span class="line"><span class="meta">#小说网页目录地址, 准备遍历全部章节地址</span></span><br><span class="line">index_url=<span class="string">'https://www.88dush.com/xiaoshuo/27/27584/'</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#获取页面内容</span></span><br><span class="line">index_req=requests.<span class="keyword">get</span>(index_url)</span><br><span class="line">index_html=index_req.content</span><br><span class="line">page_main=BeautifulSoup(index_html,<span class="string">"lxml"</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">#创建D盘根目录文件“单本下载.txt”，</span></span><br><span class="line"><span class="meta">#格式为ab+:向二进制文件末添加数据，且允许读；</span></span><br><span class="line">fo=open(<span class="string">"D:\\单本下载.txt"</span>,<span class="string">"ab+"</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">#获取div , class="mulu" 包含的内容</span></span><br><span class="line">chap_BS=page_main.find(<span class="string">"div"</span>,&#123;<span class="string">"class"</span>:<span class="string">"mulu"</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="meta">#生成器对象</span></span><br><span class="line"><span class="keyword">for</span> child <span class="keyword">in</span> chap_BS.ul.children:</span><br><span class="line">    <span class="keyword">if</span> child!=<span class="string">"\n"</span>:</span><br><span class="line">        <span class="meta">#href：目标url的属性名</span></span><br><span class="line">        chap_url=index_url+child.a.<span class="keyword">get</span>(<span class="string">"href"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="meta">#素质三联，获取lxml文档</span></span><br><span class="line">        chap_req=requests.<span class="keyword">get</span>(chap_url)</span><br><span class="line">        chap_html=chap_req.content.decode(<span class="string">"gbk"</span>)</span><br><span class="line">        soup_text=BeautifulSoup(chap_html,<span class="string">"lxml"</span>)</span><br><span class="line"></span><br><span class="line">        <span class="meta">#寻找div段落，class=yd_text2的属性块内容</span></span><br><span class="line">        chap_text=soup_text.find(<span class="string">"div"</span>，&#123;<span class="string">"class"</span>:<span class="string">"yd_text2"</span>&#125;)</span><br><span class="line"></span><br><span class="line">        <span class="meta">#.text指获取文字内容，\r\n是指写入文件中的换行符, ==</span></span><br><span class="line">        fo.write((child.<span class="keyword">string</span>+ <span class="string">"\r\n"</span>+chap_text.text+<span class="string">"\r\n"</span>).encode(<span class="string">'utf-8'</span>))</span><br><span class="line">        print(child.<span class="keyword">string</span>+<span class="string">'\t已下载'</span>)</span><br><span class="line">        </span><br><span class="line">fo.close()</span><br></pre></td></tr></table></figure></div>
 <h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>Enjoy it !</p>
 
       
@@ -630,6 +654,10 @@
           
 
   
+    <div class="comments" id="comments">
+    </div>
+
+  
 
 
 
@@ -681,7 +709,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -735,7 +763,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -825,7 +855,7 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love" id="animate">
-    <i class="fa fa-user"></i>
+    <i class="fas fa-igloo"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Kevin Lee</span>
 
@@ -834,6 +864,7 @@
   
 </div>
 
+<!--
 
 
 
@@ -843,7 +874,7 @@
 
 
 
-
+-->
         
 <div class="busuanzi-count">
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -992,6 +1023,31 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+  <script>
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'x4lOcdsdVkTSt1OtDHFr4ndU-gzGzoHsz',
+        appKey: 'xL8w3KEKkqlzxOMdCfO6oRvV',
+        placeholder: '有什么想说的吗?',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
 
 
 
@@ -1362,77 +1418,8 @@
   
 
   
-  <style>
-    .copy-btn {
-      display: inline-block;
-      padding: 6px 12px;
-      font-size: 13px;
-      font-weight: 700;
-      line-height: 20px;
-      color: #333;
-      white-space: nowrap;
-      vertical-align: middle;
-      cursor: pointer;
-      background-color: #eee;
-      background-image: linear-gradient(#fcfcfc, #eee);
-      border: 1px solid #d5d5d5;
-      border-radius: 3px;
-      user-select: none;
-      outline: 0;
-    }
-
-    .highlight-wrap .copy-btn {
-      transition: opacity .3s ease-in-out;
-      opacity: 0;
-      padding: 2px 6px;
-      position: absolute;
-      right: 4px;
-      top: 8px;
-    }
-
-    .highlight-wrap:hover .copy-btn,
-    .highlight-wrap .copy-btn:focus {
-      opacity: 1
-    }
-
-    .highlight-wrap {
-      position: relative;
-    }
-  </style>
-  <script>
-    $('.highlight').each(function (i, e) {
-      var $wrap = $('<div>').addClass('highlight-wrap')
-      $(e).after($wrap)
-      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
-        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
-          return $(e).text()
-        }).toArray().join('\n')
-        var ta = document.createElement('textarea')
-        document.body.appendChild(ta)
-        ta.style.position = 'absolute'
-        ta.style.top = '0px'
-        ta.style.left = '0px'
-        ta.value = code
-        ta.select()
-        ta.focus()
-        var result = document.execCommand('copy')
-        document.body.removeChild(ta)
-        
-          if(result)$(this).text('复制成功')
-          else $(this).text('复制失败')
-        
-        $(this).blur()
-      })).on('mouseleave', function (e) {
-        var $b = $(this).find('.copy-btn')
-        setTimeout(function () {
-          $b.text('复制')
-        }, 300)
-      }).append(e)
-    })
-  </script>
-
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618,"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"superSample":1.5,"width":150,"height":300,"position":"left","hOffset":15,"vOffset":-20},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.2},"log":false});</script></body>
 </html>
