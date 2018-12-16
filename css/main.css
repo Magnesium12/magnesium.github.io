@@ -1885,7 +1885,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #614da2;
+  background: #632d18;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2723,6 +2723,10 @@ ul {
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
 }
+.highlight-wrap[data-rel] .highlight.iseeu pre {
+  padding-top: 40px;
+  background-color: #2d2d2d;
+}
 .highlight-wrap[data-rel] {
   position: relative;
   overflow: hidden;
@@ -2773,4 +2777,14 @@ ul {
   -webkit-box-shadow: 20px 0px #fdbc40, 40px 0px #35cd4b;
   box-shadow: 20px 0px #fdbc40, 40px 0px #35cd4b;
   z-index: 3;
+}
+pre,
+.highlight {
+  overflow: auto;
+  margin: 0px 0;
+  padding: 0;
+  font-size: 14px;
+  color: #ccc;
+  background: #2d2d2d;
+  line-height: 1.6;
 }
