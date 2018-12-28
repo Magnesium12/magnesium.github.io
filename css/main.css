@@ -1885,7 +1885,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d5e79d;
+  background: #ff9812;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2800,4 +2800,8 @@ pre,
 .header {
   background-size: cover;
   background: url("https://i.loli.net/2018/12/13/5c11f0fcb44df.jpg") no-repeat;
+}
+a,
+span.exturl {
+  color: #aeaeae;
 }
