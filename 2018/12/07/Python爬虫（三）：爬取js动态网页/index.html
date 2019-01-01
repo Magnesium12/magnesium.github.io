@@ -128,7 +128,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20181124234006384.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTAwOTQ4,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20181124234256796.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTAwOTQ4,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2018-12-15T16:09:05.505Z">
+<meta property="og:updated_time" content="2019-01-01T00:24:26.756Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python爬虫（三）：从JSON解决Ajax">
 <meta name="twitter:description" content="上一篇博文中, 笔者采用了selenium驱动chrome来抓取网页, 总结来看及其低效….. 想了一下, 不能这样搞, 他要刷新局部界面肯定是要利用JavaScript调用已经写好的json的. 通常来说不会有前端选择瞎搞地址. 如果能观察出那个json的地址特点, 就到了ButifulSoup为所欲为的时间辣(●’◡’●) 对于json参数偏移量不规律的网页,那当然是 直接打死 ,哦不,">
@@ -461,7 +461,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-16 00:09:05" itemprop="dateModified" datetime="2018-12-16T00:09:05+08:00">2018-12-16</time>
+                <time title="修改时间：2019-01-01 08:24:26" itemprop="dateModified" datetime="2019-01-01T08:24:26+08:00">2019-01-01</time>
               
             
           </span>
@@ -546,10 +546,7 @@
 <h2 id="流程分析"><a href="#流程分析" class="headerlink" title="流程分析"></a>流程分析</h2><ul>
 <li>chrome浏览器打开目标网页, </li>
 <li>检查元素   <del>F12, CTRL+ shift+i, CTRL+shift+c爱用那个用哪个</del></li>
-<li>继续加载内容，注意观察network栏下的xhr文件</li>
-</ul>
-<p><img src="https://img-blog.csdnimg.cn/20181124234006384.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTAwOTQ4,size_16,color_FFFFFF,t_70" alt="图例"></p>
-<ul>
+<li>继续加载内容，注意观察network栏下的xhr文件<br><img src="https://img-blog.csdnimg.cn/20181124234006384.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTAwOTQ4,size_16,color_FFFFFF,t_70" alt="图例"></li>
 <li>很明显，那个since=就是我们要找的<br>*点击展开，根据 Query string 构造parameter参数字典<br><img src="https://img-blog.csdnimg.cn/20181124234256796.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTAwOTQ4,size_16,color_FFFFFF,t_70" alt="图例2"></li>
 <li>requests 负责请求，bs4 为所欲为</li>
 </ul>
@@ -706,7 +703,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -766,7 +763,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">13</span>
+                      
+                    
+                    <span class="site-state-item-count">14</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -854,7 +853,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love" id="animate">
     <i class="fas fa-igloo"></i>
   </span>
@@ -1403,6 +1402,13 @@
   
 
   
+  
+
+  
+  
+
+  
+
 
   
   
