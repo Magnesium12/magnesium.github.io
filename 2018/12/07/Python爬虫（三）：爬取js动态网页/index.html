@@ -119,20 +119,17 @@
     })();
 </script>
   <meta name="description" content="上一篇博文中, 笔者采用了selenium驱动chrome来抓取网页, 总结来看及其低效….. 想了一下, 不能这样搞, 他要刷新局部界面肯定是要利用JavaScript调用已经写好的json的. 通常来说不会有前端选择瞎搞地址. 如果能观察出那个json的地址特点, 就到了ButifulSoup为所欲为的时间辣(●’◡’●) 对于json参数偏移量不规律的网页,那当然是 直接打死 ,哦不,">
-<meta name="keywords" content="Web Crawler,实例">
+<meta name="keywords" content="Web Crawler">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python爬虫（三）：从JSON解决Ajax">
 <meta property="og:url" content="https://zlee.xyz/2018/12/07/Python爬虫（三）：爬取js动态网页/index.html">
 <meta property="og:site_name" content="12TH`s Cabin">
 <meta property="og:description" content="上一篇博文中, 笔者采用了selenium驱动chrome来抓取网页, 总结来看及其低效….. 想了一下, 不能这样搞, 他要刷新局部界面肯定是要利用JavaScript调用已经写好的json的. 通常来说不会有前端选择瞎搞地址. 如果能观察出那个json的地址特点, 就到了ButifulSoup为所欲为的时间辣(●’◡’●) 对于json参数偏移量不规律的网页,那当然是 直接打死 ,哦不,">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20181124234006384.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTAwOTQ4,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20181124234256796.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTAwOTQ4,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-01-01T00:24:26.756Z">
+<meta property="og:updated_time" content="2019-05-16T09:00:48.585Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python爬虫（三）：从JSON解决Ajax">
 <meta name="twitter:description" content="上一篇博文中, 笔者采用了selenium驱动chrome来抓取网页, 总结来看及其低效….. 想了一下, 不能这样搞, 他要刷新局部界面肯定是要利用JavaScript调用已经写好的json的. 通常来说不会有前端选择瞎搞地址. 如果能观察出那个json的地址特点, 就到了ButifulSoup为所欲为的时间辣(●’◡’●) 对于json参数偏移量不规律的网页,那当然是 直接打死 ,哦不,">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20181124234006384.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTAwOTQ4,size_16,color_FFFFFF,t_70">
 
 
 
@@ -461,7 +458,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-01-01 08:24:26" itemprop="dateModified" datetime="2019-01-01T08:24:26+08:00">2019-01-01</time>
+                <time title="修改时间：2019-05-16 17:00:48" itemprop="dateModified" datetime="2019-05-16T17:00:48+08:00">2019-05-16</time>
               
             
           </span>
@@ -546,11 +543,14 @@
 <h2 id="流程分析"><a href="#流程分析" class="headerlink" title="流程分析"></a>流程分析</h2><ul>
 <li>chrome浏览器打开目标网页, </li>
 <li>检查元素   <del>F12, CTRL+ shift+i, CTRL+shift+c爱用那个用哪个</del></li>
-<li>继续加载内容，注意观察network栏下的xhr文件<br><img src="https://img-blog.csdnimg.cn/20181124234006384.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTAwOTQ4,size_16,color_FFFFFF,t_70" alt="图例"></li>
-<li>很明显，那个since=就是我们要找的<br>*点击展开，根据 Query string 构造parameter参数字典<br><img src="https://img-blog.csdnimg.cn/20181124234256796.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQwOTAwOTQ4,size_16,color_FFFFFF,t_70" alt="图例2"></li>
-<li>requests 负责请求，bs4 为所欲为</li>
+<li><p>继续加载内容，注意观察network栏下的xhr文件</p>
+</li>
+<li><p>很明显，那个since=就是我们要找的<br>*点击展开，根据 Query string 构造parameter参数字典</p>
+</li>
+<li><p>requests 负责请求，bs4 为所欲为</p>
+</li>
 </ul>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CS"><figure class="iseeu highlight /cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">json_url = <span class="string">'https://富强民主文明和谐'</span></span><br><span class="line"><span class="meta">#无规则偏移量，自行逆向分析得到偏移量字典</span></span><br><span class="line">since_list = [<span class="number">26961.554</span>, <span class="number">26961.474</span>, <span class="number">26961.419</span>, <span class="number">26961.346</span>]</span><br><span class="line"></span><br><span class="line"><span class="meta">#实现提取json，加载动态内容，但是封装性不好，不能重复利用</span></span><br><span class="line"><span class="function">def <span class="title">getMorePages</span>(<span class="params">list,count=<span class="number">1</span></span>):</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">    params_list</span> = []</span><br><span class="line">    <span class="function"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="title">range</span>(<span class="params">count</span>):</span></span><br><span class="line"><span class="function">        keyword</span>=str(list[i])</span><br><span class="line">        params_list.append(&#123;</span><br><span class="line">            <span class="string">'since'</span>: keyword,</span><br><span class="line">            <span class="string">'grid_type'</span>: <span class="string">'flow'</span>,</span><br><span class="line">            <span class="string">'sort'</span>: <span class="string">'hot'</span>,</span><br><span class="line">            <span class="string">'tag_id'</span>: <span class="string">'399'</span>,</span><br><span class="line">        &#125;)</span><br><span class="line">    url = json_url</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> params_list:</span><br><span class="line">        req=requests.<span class="keyword">get</span>(url, <span class="keyword">params</span>=i).content</span><br><span class="line">        soup=BeautifulSoup(req,<span class="string">'lxml'</span>)</span><br><span class="line">        getURL(soup)</span><br></pre></td></tr></table></figure></div>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">json_url = <span class="string">'https://富强民主文明和谐'</span></span><br><span class="line"><span class="comment">#无规则偏移量，自行逆向分析得到偏移量字典</span></span><br><span class="line">since_list = [<span class="number">26961.554</span>, <span class="number">26961.474</span>, <span class="number">26961.419</span>, <span class="number">26961.346</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#实现提取json，加载动态内容，但是封装性不好，不能重复利用</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getMorePages</span><span class="params">(list,count=<span class="number">1</span>)</span>:</span></span><br><span class="line"></span><br><span class="line">    params_list = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(count):</span><br><span class="line">        keyword=str(list[i])</span><br><span class="line">        params_list.append(&#123;</span><br><span class="line">            <span class="string">'since'</span>: keyword,</span><br><span class="line">            <span class="string">'grid_type'</span>: <span class="string">'flow'</span>,</span><br><span class="line">            <span class="string">'sort'</span>: <span class="string">'hot'</span>,</span><br><span class="line">            <span class="string">'tag_id'</span>: <span class="string">'399'</span>,</span><br><span class="line">        &#125;)</span><br><span class="line">    url = json_url</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> params_list:</span><br><span class="line">        req=requests.get(url, params=i).content</span><br><span class="line">        soup=BeautifulSoup(req,<span class="string">'lxml'</span>)</span><br><span class="line">        getURL(soup)</span><br></pre></td></tr></table></figure></div>
 <h2 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h2><p>很显然，这样做效率会高很多  <del>发现json规律成为了木桶的最短板</del>，为了避免那个网站被薅羊毛，我就手动屏蔽惹OTZ……<br>另外，代码只放入了相关的一部分，有兴趣的同学可以尝试结合上一篇，整合功能鸭~<br>Good night！</p>
 
       
@@ -600,8 +600,6 @@
           
             <a href="/tags/Web-Crawler/" rel="tag"># Web Crawler</a>
           
-            <a href="/tags/实例/" rel="tag"># 实例</a>
-          
         </div>
       
 
@@ -613,8 +611,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/03/歌曲推荐The-Song-For-You/" rel="next" title="推歌：A LETTER">
-                <i class="fa fa-chevron-left"></i> 推歌：A LETTER
+              <a href="/2018/12/03/歌曲推荐The-Song-For-You/" rel="next" title="A LETTER">
+                <i class="fa fa-chevron-left"></i> A LETTER
               </a>
             
           </div>
@@ -703,7 +701,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">12</span>
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -724,7 +722,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -765,7 +765,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>

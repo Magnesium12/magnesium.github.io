@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Pipenv]]></title>
+    <url>%2F2019%2F05%2F16%2FPipenv%2F</url>
+    <content type="text"><![CDATA[Pipenv 一个独立且完整的 python 虚拟环境管理 提供基于独立环境的独立 python 项目管理方法 可以帮助我们摆脱多个项目的依赖库相互排斥的问题 为什么选择Pipenv python 社区主流推荐 自动记录第三方库依赖 采用哈希校验，包管理操作更加安全 可以根据 pipfile 和 pipfile.lock 快速创建配置虚拟环境 Let`s go ahead请注意，本篇文章默认操作系统为 Windows，python 版本为 python 3.7 安装pipenv确保你的电脑正确安装了 python3 和 pip3 12345# python3 下安装方式pip install pipenv# 同时存在 py2 和 py3pip3 install pipenv 创建并激活env假设我们当前的资源管理器路径是 D:\\project ， 我们需要在project文件夹下创建一个 Django 文件夹， 然后在其中创建项目的虚拟环境 123456789101112# 创建虚拟环境mkdir djangocd djangopipenv --python 3.7# 查看相关信息pipenv --wherepipenv --venvpipenv --py# 激活pipenv shell 激活状态操作激活状态下操作主要是包管理和 .py 文件执行 建议多使用 pipenv --help 命令]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>Turtorial</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Nothing Matters]]></title>
     <url>%2F2019%2F01%2F26%2FNothing-Matters%2F</url>
     <content type="text"><![CDATA[Weather the God knows how to padding the void of human`s heart ? It`s nature of human beings to be irritable, jealous, weak and greedy. I hold the belief that life is the never ending battle to confront with them. So that, to be a beast, a man or sth else, mostly would rely on your own . Merely I would get offended with no obvious reason, making my friend/family feel confused, even be hurt. However, I trust it that you would be with me once you in such a moment which every one is consuming your patience by repeating something inessential again and again. If I were irritable at one time, the reason is nothing but the surrounding stupid people. $Kevin Lee​$]]></content>
       <categories>
-        <category>随笔</category>
+        <category>Thoughts</category>
       </categories>
       <tags>
-        <tag>封印指定</tag>
+        <tag>艾穆-安格瑞</tag>
       </tags>
   </entry>
   <entry>
@@ -16,11 +28,11 @@
     <url>%2F2018%2F12%2F31%2F%E4%BA%8C%E3%80%87%E4%B8%80%E5%85%AB%2F</url>
     <content type="text"><![CDATA[二〇一八年的最后一天 今天是二〇一八年最后一天。 我想与自己聊一聊，可能是尚未消逝于脑海的过往，已经做好打算的未来，亦或只是单纯聊聊现在坐在图书馆的自己。 最近有什么值得回忆的事情呢….. 啊…..好像不怎么能记起来了，难道是因为黑历史太多了吗（笑），感觉要归功于自己今年努力保持不引人注意的成果。 ——其实还是有的。例如暑假和一群大一的小朋友完成了自己的暑期实践+毛概论文。总的来说，作为团队的一份子，我没怎么摸到鱼，顺便了解到创业的客观政策情况与创业者的个人观念。 结论嘛……..对于大多数的大学生创业者来说，大创活动就是面向PPT创业ORZ…… 再者就是一些对我影响非常大的事件了。 大概10月吧，就是学习了一点python，学了一点数据结构，学了一点奇奇怪怪的知识，想要分享自己的每一阶段的学习经历和成果 菜到不行的鶸总是会有一个幼稚的幻想。 CSDN算是一个选择，但我最初想的是利用利用阿里云ECS搭建一个博客网站，也成功的利用word press搭建了自己的第一个网站——虽然她连域名都没有就到期了QAQ。 总之我选择了Hexo，它可以很简洁，可以很好看。最重要的是，HEXO完全属于自己，而我恰好需要一个这样的能够体现自己的平台。 每一个鶸都会在一些花里胡哨的地方误入歧途。 我也一样 ，此处并没有表情包！ 经过一点折腾，HEXO搭建完成，我真的蛮高兴的，于是我想着要把她变得好看一点，更好看一点。于是去查阅别人利用Hexo搭建的博客，一点一点的尝试，认为自己在做很有意义的事。 之后是另一个关键的时间点。 我遇到了……emmmmm，用AZ来代指吧！ 很庆幸遇到了AZ，人类永远无法真正理解旁人的感受，正如只有我自己才能明白AZ之于我是什么意义，言语无法传达，或者说把它锁在自己心里就足够了。 如果说，之前的得过且过学好老师指定的课程，然后空闲时间打打游戏追追番剧就OK的话，我现在只觉得那是一种对自己的侮辱。 更加令我痛苦的是，我正在做的事情，是别人在很久以前就接触的事物。而他们，也只是利用了自己的业余时间而已…… 以前我总喜欢用咸鱼来自嘲：”咸鱼咸鱼咸~“。有个道理大家都懂，只有有钱人才能哭喊自己好穷，智商高的家伙才能说自己智商一般，全靠努力。 都只是调侃，谁当真谁傻X。 AZ和他的朋友们有时候也会觉得自己很丧，觉得自己什么都做不好。所以当我与AZ，与AZ的朋友们对比时。我觉得自己真的不配用咸鱼来自嘲——我在NJU所做的一切，都没有跳出所谓的COMFORT ZONE，在某种意义上，我只是一个在原地踏步的The Blind。而他们，才是真正的在春风料峭中鲜衣怒马红刀的风流少年。 记忆会随着时光的侵蚀而逐渐淡化，我突然想要写一篇水水的博文也只是想留下一抹来自二〇一八的过往。 就这样吧。 $Kevin Lee .$]]></content>
       <categories>
-        <category>随笔</category>
+        <category>Thoughts</category>
       </categories>
       <tags>
         <tag>Thought</tag>
-        <tag>Memory</tag>
+        <tag>Unknown</tag>
       </tags>
   </entry>
   <entry>
@@ -28,12 +40,11 @@
     <url>%2F2018%2F12%2F29%2FC%2B%2B%20Programing%2F</url>
     <content type="text"><![CDATA[Better Than Nothing 前言这只是心血来潮的产物, 他的内容基础到我都不好意思称呼他为一篇正经的C++指南….. 最致命的一点, 估计就是大量的默认了解过C语言的相关概念了…… 总之算是我的一个尝试吧, 使我知道了写这样的博文会很蛋疼 计算机与C++简介 选择性了解 计算机组成 输入单元 (input unit) 输出单元 (output unit) 内存单元 (memory unit) 算术逻辑单元 (arithmetic and logic unit, ALU) 中央处理器 (central processing unit, CPU) 辅助存储单元 (secondary storage unit) 数据的层次结构 位 (Bit)位, 计算机最小的数据项, 数值为0或1. (Binary digit) 字符 (Charater)Unicode字符集包含了世界上很多中语言, 每个字符是由两个字节(Byte)组成, 每个字节是8位. 流行的ASCII(美国信息交换标准代码) 是Unicode的子集. 字段 (Field) 记录 (Record) 文件 (File) 数据库 (Database)层次结构中, 除去数据库之外, 其余相邻层次均为组成与被组成关系 语言 机器语言一般由0/1组成, 令人费解. 计算机能直接执行. 汇编语言采用类似英语缩写的指令表示基本操作. 汇编器(assembler) 负责将汇编语言转换成机器语言, 然后才能被计算机理解. 高级语言抽象程度更高, 一种方式是采用编译器(compiler)转换为机器语言. 例如: C++, Java, C#等.另一种方式是采用解释器(interpreter), 可以直接执行高级语言程序 (没有编译的延迟), 但是执行过程会慢得多. 脚本语言采用解释器来处理, 例如: JavaScript, PHP 面向对象编程(OOP) 对象 成员函数和类 实例化 重用 消息和成员函数调用 属性和数据成员 封装 (encapsulate) 继承 (inheritance) UML (统一建模语言)Unified Modeling Language C++ 编程入门 没什么好说的, 简单提几点 输入/输出流 输出流对象std::cout用于输出数据, 串联的流插入运算符&lt;&lt;可以输出多个数据 输入流对象std::cin用于输入数据, 串联的流提取运算符&lt;&lt;可以输入多个数据请记住, cout和cin是对象, 这一点在运算符重载中会有体现 变量和内存 每个变量都具有: 名字, 值, 类型, 内存大小,存储类别, 作用域和链接 . 对内存的读取过程是非破坏性的, 写入则相反 其余 求模运算符 (%) 只能得到整数除法的余数 using 声明using std::cout;表示告知编译器, 在命名空间 std 中找到cout 类, 对象和字符串 类、对象、数据成员、成员函数、UML图、构造函数 ### 类的定义 通常来说, 类应当包括数据成员和成员函数, 两者对应着类的属性和行为 成员访问说明符: public`privateprotected` 类的数据成员应当设计成私有（private）、成员函数设计成公有（public） 按照惯例, 类名每个单词首字母大写, 函数名则采用驼峰式写法这样优雅 成员函数 成员函数一般声明为public 定义同C语言的函数语法 数据成员 数据成员可以被声明为 public/private/protected 尽可能复用get/set函数，以便于建立更为强壮（易维护）的类get/set函数是类提供的对私有成员(private) 的访问接口 应当将数据成员私有化通过公有函数控制访问数据成员的权利，保证数据的完整性. 数据完整性还包括对有效性的检查和报告错误 构造函数（constructor） 构造函数初始化对象； 构造函数可能为非显式；例如类string默认字符串的构造函数为空串 explicit构造函数必须显式调用。原则上应该在所有的构造函数前加explicit关键字，当你有心利用隐式转换的时候再去解除explicit，这样可以大大减少错误的发生。QUATE 构造函数不能返回值 通常构造函数声明为public（成员访问说明符) Account类构造函数定义如下123Account::Account(int number):number(number)&#123;&#125; 此例中，构造函数通过成员初始化列表用构造函数形参number初始化数据成员number 析构函数形式通常为~+构造函数 接口与实现的分离所谓接口是指函数原型(函数声明), 实现是指函数定义. 好的实践是将二者分离, 即头文件定义类并对函数声明, 外部cpp定义类的成员函数. ::二元作用域分辨运算符 (scope resolution operator), 成员函数定义在类定义外部时启用 using指令和声明不应放在头文件中 函数原型告知编译器函数的名字、返回类型、形参类型；函数定义则是包含函数的实现 字符串(string) string是C++标准库类型 读取字符串时，流提取运算符读取字符在遇到第一个空白字符时停止，所以使用getline(cin，xxx)替代cin&lt;&lt;xxx substr函数中，第一个参数表示起始位置，第二个表示复制字符的个数 UML图 UML图分为三层, 每一层用横线隔开, 采用+`-`对应公有和私有 上层为类名 1GradeBook 中层为数据成员 1- course Name:String 下层为成员函数 1234&lt;&lt;constructor&gt;&gt; + GradeBook(name:String)+ setName(name:String)+ getCourse Name():String+ displayMessage() 本章小结：建立类、接口与实现分离、构造函数初始化对象、UML图 对于new的对象应使用destroctor（析构函数，防止内存泄漏）； 结构体声明也会初始化对象 控制语句(Ⅰ)赋值、自增自减运算符 主要内容和C语言类似, 不必展开. 其余内容无法展开 控制结构 (control structure) 顺序 (sequence), 选择 (selection)和循环 (repetition) 循环控制结构分为: 计数器控制和标记控制 控制结构可以嵌套 One Trick of Selection Structure123i = i==1?i=0:i=1;cout&lt;&lt;(grade&gt;=60?"passed":"failed"; ### 赋值 Int A = 1.3 ; 警告但仍能编译；Int A = { 1.3 };出现错误，无法编译。这是一种‘缩小转换，我们应该尽量避免 可以使用 static_cast()来强制转换类型 ​ 自增自减运算符 --a和a--的区别: a--中，变量表达式先使用a值，再对a进行更新--a中，a先更新，然后在变量表达式中使用123int i= 1;cout&lt;&lt;i++&lt;&lt;endl;// i=2 ;输出 1; 自增自减运算符不可用于表达式：如(x+1)++为错 本章小结： 算法：根据索要执行的动作及这些动作执行的顺序描述的解决问题的过程； 伪代码: 没啥用 控制结构（顺序、选择、循环）: 顺序结构； 选择结构：选择语句（单路选择if，双路选择if else）、循环语句while 循环结构； 控制语句(Ⅱ)和逻辑运算符switch这不是游戏机!!12345678switch (grade)&#123; case 'A'; case 'a': &#123;cout&lt;&lt;"guna!!!"; break;&#125; default: cout&lt;&lt;"rua!!!"&lt;&lt;endl; break;&#125; break &amp; continue结束和跳过的区别 本章小结： for语句；do..while语句；switch多路选择语句；break&amp;continue语句；逻辑运算符||、&amp;&amp;、！；==、=运算符；结构化编程：任何形式的控制都可以用顺序、选择、循环语句来表达，并且这些语句的组合方式只有堆叠和嵌套； 函数与递归摘要 函数参数: 形参实参, 引用和值,调用堆栈, 标识符作用域, 重载, 模板变量: 存储类别, 作用域, 链接递归与迭代 C++程序组件 C++程序是由预先打包的函数和类及自己编写的函数和类组合而成； C++库有自己的头文件，同时也包含了各种类类型、函数和常量的定义 函数原型 函数原型包括返回值类型, 函数名和参数类型. 函数名和参数类型合并称为函数签名 C++ 的函数参数类型存在基本类型间的隐式转换 可以简单理解为函数声明中除去返回值的部分 随机数与枚举类型Rand()该函数原型包含于&lt;cstdlib&gt;头文件下，如果没有利用srand()更新种子，那么每次的随机数生成结果将完全相同。 Rand()可预测，不具有良好的统计特性. 安全性较弱 C++11提供了&lt;random&gt;随机数库，用配置控制引擎产生的值、值的类型、及统计特性；用引擎实现一套生成伪随机数的算法；1234567#include&lt;random&gt;Int main()//默认的随机数生成引擎和默认的配置&#123; Default_random_engine engine(static_cast&lt;unsigned int&gt;(time(0))); Uniform_int_distribution&lt;unsigned int&gt; randomInt(1,6)//Uniform_int_distribution是一个类模板&#125; Srand()该函数原型包含于&lt;cstdlib&gt;头文件下，通常为srand(static_cast&lt;unsigned int(time(0)))，意为将time()返回的值（从格林尼治时间到当前的秒数）从time_t转换为int类型，并用作随机数种子。实例12srand(static_cast&lt;unsigned int(time(0)))；Number=C+rand()%A;//生成值域为[C,C+A-1]的随机数 枚举类型：关键字enum+枚举类型名+一组由标识符表示的整型常量1enum Status&#123;CONTINUE, WON, LOST&#125;; 默认情况下，枚举类型值从零开始并递增1，整型类型为int；类型名首字母最好大写；枚举常量必须大写；枚举类型名+:+整型类型，制定整型类型； 进阶情况：1enum class Status: unsigned int &#123;CONTINUE=1, WON, LOST&#125;; 作用域限定，可以避免潜在的命名冲突和逻辑错误；设定整型类型，应足够保证保存指定的常量值；引用枚举常量：result==Status:: WON; 存储类别和存储期(入门)存储期 五个类别的标识符： auto extern static register mutable 四种类型: 自动存储期, 静态, 动态, 线程 自动存储期变量(register &amp; auto) 定义在函数内的局部变量 函数形参 register声明的局部变量或函数形参 静态存储期变量(static &amp; extern) 具有静态存储期的变量从程序开始执行到结束, 一直存在于内存中.对于这样的变量, 声明时便对它进行一系列初始化.当然, 存储期和作用域是两回事, 他不意味着在整个程序都能使用标识为static 的局部变量在函数结束后也不会消失, 它会以最后一次的返回值保留 Trick code1234567891011static a= 1;void foo()&#123; static b=1; b++;&#125;;int main()&#123; int a=0; cout&lt;&lt;::a&lt;&lt;a&lt;&lt;endl;//10, 此时的:: 是一元作用域分辨符 foo(); foo();&#125; 寄存器变量(register) register建议将变量放置在计算机的高速硬件寄存器而不是内存中, 对于频繁使用的变量采用register可以有效消除变量-&gt;内存-&gt;寄存器-&gt;内存的开销. 只能与局部变量和函数形参一起使用 理论上不需手动优化, 编译器可以智能识别 作用域标识符在程序中可以被引用的范围 函数作用域仅限于case:一类 1234switch()&#123; case a:&#123;&#125;;break; .....&#125; 语句块作用域最广泛, 作用域为从声明到语句块右大括号. 全局命名空间作用域(global namesapce scope )声明于任何函数和类之外, 对于从声明到文件结束的任何函数都是已知的. 函数原型作用域实际上函数原型的参数不需要标志符, 只需要类型, 所以函数原型作用域的标识符可以在任意处复用. 链接标识符是否只是在声明它的源文件被识别, 或者可以在编译后链接的多文件被识别 函数调用堆栈和活动记录函数调用是一种 LIFO机制, 每层次包含了函数的返回地址和其他信息, 递归调用最能直观体现. 引用和引用形参 Int &amp;count 表示count是对一个int类型对象的引用 按引用传递的形参等价于原有实参的别名，修改按引用传递的形参等于修改对应实参 如果一个函数的形参是按引用传递的：即int &amp; count，很可能会因为引用形参导致对应实参被修改而发生错误！ 函数重载和函数模板(入门) 函数重载：相同函数名，但具有不同的形参集合；通过函数签名区分； 函数模板：12345T maximum(T value1, T value2, Tvalue3)&#123; T maximumValue= value1; //省略中间 return maximumValue; T为参数类型（int、double等） 递归 递归函数是直接或者间接调用自身的函数； 一般分解为两个步骤: 基本情况终结递归, 和简化情况调用递归 内存开销很大 指针这里描述的指针沿袭了C语言风格, 实际运用时需要注意最小特权原则. 默认有一定的C语言基础，基本知识略去 指针变量的声明与初始化 指针变量与间接引用指针变量把内存地址作为它的值. 如果说一个变量名直接引用一个值, 那么一个存有一个变量名内存地址的指针变量就是间接引用这个值. 指针的声明 1234int *ptr, count;// ptr是一个是一个指向int类型数据的指针// count是一个int类型的变量// (*)在这里并不是运算符, 他只是用于表示ptr是一个指针 指针初始化将指针初始化为nullptr是有必要的, 这可以防止它指向一个未知的或者未被初始化的内存空间 指针运算符 地址运算符&amp;地址运算符是一个一元运算符, 它获得操作数的内存地址.1234//取址与赋值int y = 5;int *yptr = nullptr;yptr = &amp;y; 值得一提的是, 这里的&amp;与我们之前在函数中提到的引用变量声明&amp;不同, 简言之:​ 1. 后者的前面必然有一个数据类型名​ 2. 在声明一个引用的时候,&amp;只是类型的一部分 间接运算符*一元运算符*通常被称为简介运算符或者间接引用( dereference)运算符. 它返回一个左值, 表示其指针操作数所指向的对象12345*yptr = 8;cin&gt;&gt; *yptr;cout&lt;&lt; *yptr&lt;&lt;endl;cout&lt;&lt; y &lt;&lt; endl; //两者等价 ### 使用指针的按引用传递方式 真実はいつもひとつ 所有的引用都是传值引用, 无非你传入的是指针的内存地址值, 又或者是变量值. 内置数组 C语言风格, 主要特点是内存连续, 通过下标访问, 大小固定.不建议使用, 可以改用标准库中的 vector 或者array 对于Linux 或者 OS X系统来说, 内置数组有时是必要的.例如使用命令行执行程序时, 需要给程序提供命令行参数, 此时的命令行参数将作为一个具有基于指针的字符串元素的内置数组传递给main函数. 123456//Windows 下常见的main函数声明方式int main(int argc, int *argv[])&#123; /* your code */ return 0;&#125; 使用const修饰指针 指向非const 数据的非const 指针具有最大的访问权限, 指针和数据均可修改 指向const 数据的非const 指针可以修改指针指向, 不可以修改数据.可以在只读函数中大胆使用, 获取数据的高速引用. 指向非const 数据的const 指针 指向const 数据的const 指针 指针表达式和指针算数运算和内置数组 指针赋值只有在已知指针类型的情况下, 编译器才能进行指针赋值. 例如 void*类型指针无法直接被赋值到其他类型指针. 因为编译器需要知道一个指针所指向的字节数和数据类型, 确定该指针间接引用的字节数. 指针比较非同一数组指针的比较毫无意义 指针/偏移量表示法 12345678int b[5];int* bPtr;//b[3]的几种写法*(bPtr + 3)*(b +3)* &amp;b[3]* &amp;(bPtr +3) 请注意, b+= 3 这种写法是错误的, 内置数组名不可修改. 类的深入剖析：抛出异常 头文件的包含防护(include guard) : #pragma once继承和组成概念 类的作用域和类成员的访问成员选择运算符.和-&gt;. 适用于对象或对象引用, -&gt; 适用于对象的指针 const 对象和const 成员函数对于const 对象, C++编译器不允许被除声明为const的成员函数之外的成员函数调用. 很明显我们的构造函数和析构函数无法被声明为const, 况且构造函数和析构函数必然会修改对象. 这里, const的有效性是指对于构造函数和析构函数之间的部分而言 友元函数和友元类友元声明(friend)友元关系是授予的而不是索取的. 如果说B是A的友元, 那么B可以访问A的成员. 对于A来说, A不是B的友元, A无法对B中的成员进行访问. 例如1234567891011class classTwo;class classOne&#123; friend class classTwo; friend void setX();public: classOne(); ~classOne()&#125; static 类数据成员 static 表示”整个类范围”上的信息(即类所有实例共享的性质, 而不是某个特定实例具有的特性) static 数据成员具有类作用域并且可以声明为public, private, protected. static 关键字不能用于类定义之外的成员定义 对于不访问非static数据成员或非static成员函数的成员函数, 应当声明为static. static成员函数没有this指针, 它独立于类的任何对象 没有类对象, 类的static类成员依旧存在, 并且可以用类名+:: 作为前缀直接访问public static类成员 当没有类的对象存在而要访问private的static类成员时，应该提供public static 成员函数；并通过在函数名前加类名和二元作用域分辨运算符的方式来调用此函数]]></content>
       <categories>
-        <category>学习</category>
+        <category>Human Learning</category>
       </categories>
       <tags>
-        <tag>笔记</tag>
-        <tag>语言</tag>
-        <tag>编程语言</tag>
+        <tag>Note</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -44,8 +55,8 @@
         <category>Hexo</category>
       </categories>
       <tags>
-        <tag>施工中</tag>
-        <tag>Hobby</tag>
+        <tag>Theme</tag>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -53,11 +64,11 @@
     <url>%2F2018%2F12%2F13%2FData-Structure-and-Algorithm-Analysis%2F</url>
     <content type="text"><![CDATA[谨以此文, 纪念我没怎么听过的数据结构 线性表线性表是数据元素的非空有限集合 唯一一个“ 开始节点” 唯一一个” 终端节点“ 除开始结点外，集合中的每个数据元素均只有一个直接前驱 除终端结点外，集合中的每个数据元素均只有一个直接后继 顺序表线性表的结点按逻辑次序存放在一组地址连续的存储单元里, 例如数组 loc(ai)=loc(a1)+(i-1)*c 代码实现分析插入算法和删除算法都是O(n) ### 树 定义要点 n个结点组成的有限集合 根结点(root) 其余结点分为m个子树(subtree) x&lt;y, 则Tx在Ty右侧, 称为有序树 基本术语 结点(node)——表示树元素，包括数据项及指向其子树的分支 结点的度(degree)——结点拥有的子树个数 叶子(leaf)——度为0的结点，又称终端结点 孩子(child)——结点子树的根称为该结点的孩子 双亲(parents)——孩子结点的上层结点叫该结点的双亲 兄弟(sibling)——同一双亲的孩子 祖先(ancestor) ——树的根结点 子孙(descendant) ——子树上的所有结点 树的度(degree) ——一棵树中最大的结点度数 结点的层次(level)——根为第一层，它的孩子为第二层…… 树的深度(depth)——树中结点的最大层次数 森林(forest)——m(m&gt;=0)棵互不相交的树的集合 二叉树二叉树的性质 若二叉树的层次从1开始, 则在二叉树的第 i 层最多有2^i+1^ 个结点(i &gt;=1) 深度为k的二叉树最多有 2k-1个结点(k &gt;=1) 任意一颗二叉树, 如果其叶节点数为n~0~, 度为2的节点数为n~2~, 则有 n~0~=n~2~+1 具有 n 个结点的完全二叉树的深度为log~2~(n+1) 向上取整。 定义1 满二叉树(Full Binary Tree)一棵深度为k且有2k –1结点的二叉树称为满二叉树。特点：每一层上的结点数都是最大结点数。 定义2 完全二叉树(Complete Binary Tree)若一棵二叉树只有最下两层上的结点的度数可以小于2，并且最下一层上的结点集中分布在该层左侧连续的若干位置上，则该二叉树称为完全二叉树。 二叉树的存储结构顺序存储和链表式存储 二叉树的先序、中序和后序遍历采用递归确定遍历顺序：对于二叉树任意一个父节点和及其子节点，先序遍历永远是父节点，左子，右子.中序和后序同理 代码实现下面展示了相应的两种方法 递归法 迭代法( 利用栈 ) 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103104105106107108109110111112113114115//操作函数void InitStack(BTreeNode *&amp;T);void PushStack(BTreeNode *&amp;T, BTreeNode *&amp;child);BTreeNode *PopStack(BTreeNode *&amp;T);bool isEmpty(BTreeNode *T);//二叉树节点定义struct BTreeNode&#123; ElemType data; BTreeNode *leftChild; BTreeNode *parent; BTreeNode *rightChild;&#125;;//前序遍历的非递归算法void preOrderTraverse(BTreeNode *T)&#123; BTreeNode *s; //设置预留右子树指针 BTreeNode *p = T; //当前结点指向根结点 InitStack(s); //初始化空栈 PushStack(s, NULL); //压一空指针进栈 while (p != NULL) &#123; cout &lt;&lt; p-&gt;data; //访问当前结点 if (p-&gt;rightChild != NULL) PushStack(s, p-&gt;rightChild); //进入左子树前预留右子树指针在栈中 if (p-&gt;leftChild != NULL) p = p-&gt;leftChild; //进入左子树 else p = PopStack(s); //从栈中弹出相应的右子树 &#125;&#125;//中序遍历void inOrder(BTreeNode *T)&#123; if (T != NULL) &#123; inOrder(T-&gt;leftChild); //中序遍历T的左子树 cout &lt;&lt; T-&gt;data; //访问根结点 inOrder(T-&gt;rightChild); //中序遍历T的右子树 &#125;&#125;//中序遍历的非递归算法void inOrderTraverse(BTreeNode *head)&#123; BTreeNode *s; BTreeNode *p = head; InitStack(s); PushStack(s, NULL); while (p||(!isEmpty(s)) &#123; while (p) &#123; PushStack(s, p); p = p-&gt;leftChild; &#125; if (!isEmpty(s)) &#123; p = PopStack(s); cout &lt;&lt; p-&gt;data; p = p-&gt;rightChild; &#125; &#125; &#125;//后序遍历void postOrder(BTreeNode *T)&#123; if (T != NULL) &#123; postOrder(T-&gt;leftChild); //后序遍历T的左子树 postOrder(T-&gt;rightChild); //后序遍历T的右子树 cout &lt;&lt; T-&gt;data; //访问根结点 &#125;&#125;//post Order Traverse void postOrderTraverse(BTreeNode *head)&#123; BTreeNode *s; BTreeNode *visit; InitStack(s); PushStack(s, NULL); while (head || (!isEmpty(s))) &#123; while (head) &#123; PushStack(s, head); head = head-&gt;leftChild; &#125; head = PopStack(s); //右节点已经访问或者右节点为空的情况下,访问根结点 if (head-&gt;rightChild == NULL || head-&gt;rightChild == visit) &#123; cout &lt;&lt; head-&gt;data; visit = head; head == NULL; &#125;else &#123; //右节点尚未访问时,重新压入栈 PushStack(s,head); //访问右节点 head = head-&gt;rightChild; &#125; &#125;&#125; 参考文章: 二叉树的遍历方法 线索二叉树 由于具有n个结点二叉树中， 共有n+1个指针域空置不用。为此，A.j.Parlis和C.Thornton 提出利用二叉数中这些空的链域来存储结点前驱或后继的地址信息的方法：若某个结点的left指针为空， 则使该left指针指向该结点的前驱结点；若某个结点的right指针为空，则使该right指针指向该结点的后继结点。为了区别两个指针域的含义， 每个结点的存储结构中增加两个布尔型的线索标志字段Lthread 和Rthread。指向前驱结点和后继结点的指针为线索(thread)， 带有线索的二叉树称为线索二叉树(Threaded Binary Tree) 。 中序线索化二叉树的递归算法分析思路 由于线索二叉树首先是二叉树，所以对它的任何算法可以是递归的。 按照中序遍历次序对二叉树进行线索化，对遍历到的每一个结点，先线索化其左子树，再线索化当前结点，最后线索化其右子树。 设置两个结点指针，分别指向遍历过程中的当前结点和它的前驱结点。 当前结点的左线索化和其前驱结点的右线索化同时进行. 若当前结点无左子树，构造其左线索(Lthread= true)及标志，若其前驱无右子树，则构造其前驱的右线索(Rthread= true)及标志。 算法实现123456789101112131415161718192021222324252627282930struct TBTreeNode //线索二叉树类型定义&#123; bool Lthread, Rthread; ElemType data; TBTreeNode *leftChild; TBTreeNode *rightChild;&#125;;void Threaded(TBTreeNode *t, int flag = 0)&#123; static TBTreeNode *prenode; //当前结点t的前驱指针 if (flag == 0) prenode = NULL; // prenode初值为空 if (t != NULL) //t树存在 &#123; Threaded(t-&gt;leftChild, 1); //对左子树线索化 t-&gt;Lthread=t-&gt;leftChild==NULL?true:false;//置左线索标志值 t-&gt;Rthread=t-&gt;rightChild==NULL?true:false;//置右线索标志值 if (prenode != NULL) //当前结点的前驱存在 &#123; if (prenode-&gt;Rthread) prenode-&gt;rightChild = t; //互指 if (t-&gt;Lthread) t-&gt;leftChild = prenode; &#125; prenode = t; //t作为中序遍历后继结点的前驱 Threaded(t-&gt;rightChild, 1); //对右子树线索化 &#125;&#125; 中序线索二叉树的节点插入在p所指结点与它的右子树之间插入q所指新结点，可以分两种情形考虑。 P结点存在右子树：此时将q结点作为p结点的右孩子点，p结点原来的右子树作为q结点的右子树，使q结点作为p结点的后继结点，p结点的原后继结点作为q结点的后继结点（将p结点右线索标志及右孩子指针拷贝到q结点），需对有关结点的线索进行赋值或修正。 P结点不存在右子树：此时无论p结点是其父结点的左孩子或右孩子，将q结点作为p结点的右孩子结点前，将p结点右线索及标志拷贝到q结点即可。 算法实现1234567891011121314void InsertRight(TBTreeNode *p, TBTreeNode *q)&#123; TBTreeNode *s; s = InOrderSuc(p); //s指向结点p的后继 q-&gt;Lthread = true; //置插入结点左线索标志 q-&gt;leftChild = p; //插入点的左线索指向p结点 q-&gt;Rthread = p-&gt;Rthread; //复制p结点的右线索标志 q-&gt;rightChild = p-&gt;rightChild; //复制p结点的右孩子指针 p-&gt;Rthread = false; //置p结点的右线索标志为假 p-&gt;rightChild = q; //p结点的右指针指向新插入q结点 if (s != NULL &amp;&amp; s-&gt;Lthread) //结点p的后继存在且有左线索 s-&gt;leftChild = q; //修正使其指向q&#125; 二叉排序树二叉排序树(Binary Sort Tree)具有以下性质： 二叉排序树可以是棵空树； 若它的左子树非空，则左子树的所有结点的关键字均小于根结点的关键字； 若它的右子树非空，则右子树的所有结点的关键字均大于等于根结点的关键字； 左子树、右子树本身也是二叉排序树。 平衡二叉树(AV树)一棵平衡二叉排序树或者是空树，或者是具有下列性质的二叉排序树： 左子树与右子树的高度之差的绝对值小于等于1 左子树和右子树也是平衡二叉排序树 平衡二叉排序树的平均查找长度为O(log~2~n)平衡因子：结点的左子树深度与右子树深度之差(-1，0，1) 平衡二叉树的调整 L和R的自由排列组合: LR, LL, RL, RR 四种组合没有什么特殊性, 只要注意超出的深度在那个子树上即可. 调整原则: 所有左子树节点关键字均小于其相应的根节点关键字, 右子树的所有结点的关键字均大于等于根结点的关键字. 例如根节点左子树的右子树失去平衡, 就是LR型 偏序树优先队列(Priority queue)中每个元素都有一个优先数，删除时，总是删除优先数最大的元素。实现优先队列的一种有效方法是将优先队列的元素组成完全二叉树，二叉树中任何结点的优先数(关键码)不小于它的子女结点的优先数(关键码)，具有这一性质的完全二叉树称为偏序树(Partially order tree)，又称最大堆。如果完全二叉树中任何结点的优先数(关键码)不大于它的子女结点的优先数(关键码)，则定义为最小堆。 偏序树插入和删除算法流程最大堆调整示例 插入操作 元素放置到队尾( 队尾插入 ) 与父节点比较. 如果大于父节点, 则两者交换, 否则插入完成 重复第2步, 父节点为空时, 插入完成 删除操作 交换根节点和尾节点后, 删除尾节点 调整偏序树: 从根节点作为父节点开始. 如果父节点小于子节点, 将父节点与子节点中最大的一个交换. 父节点设为交换后的子节点, 重复第2步. 如果子节点为空, 或者子节点均小于父节点, 调整完成. 代码实现略 哈夫曼树最小权值 构造哈夫曼树的哈夫曼算法 根据给定的n个权值{w1，w2，…,wn}, 构成n棵二叉树的集合(森林）F={T1,T2,….,Tn },其中每棵二叉树Ti中只有带权为wi的根结点,其左右子树均空。 在F中选取两棵根结点的权值最小的树作为左右子树(左小右大)构造一棵新的二叉树,且置新的二叉树的根结点的权值为其左、右子树根结点的权值之和。 在F中删除这两棵树,同时将新的二叉树加入F中。 重复 2 和 3 , 直到F只含一棵树为止.这棵树便是哈夫曼树。 代码实现略 图 图的定义图是由顶点集合(vertex)及顶点间的关系集合组成的一种数据结构：$$G＝( V, E )$$其中 V = { x | x ∈ 某个数据对象}是顶点的有穷非空集合}；无向图: $$E = {(x, y) | x, y ∈ V }$$或有向图: $$E = {&lt;x, y&gt; | x, y ∈ V, Path (x, y)}$$顶点之间关系的有穷集合(可以为空)，也叫做边(edge)集合。$$Path (x, y)$$表示从 x 到 y 的一条单向通路, 它是有方向的。 有向图(directed graph) 有向图(Directed graph)G是由两个集合 V(G)和E(G)组成。 其中：V(G)是顶点的非空有限集，E(G)是有向边(也称弧)的有限集合，弧是顶点的有序对，记为&lt;v,w&gt;， v为弧的起点，w为弧头的终点, 注意&lt;v,w&gt;≠&lt;w,v&gt;。 无向图(undirected graph) 无向图(Undirected graph)G是由两个集合V(G)和E(G)组成 完全图 n个顶点的无向图拥有n(n-1)/2个节点, 即为完全图 排序 对由n个记录组成的表(或文件)L=(r1,r2,…….,rn)，依据记录中某个数据项的值重新进行排列的过程称之为排序（sorting），该数据项称为排序码，一般情况下， 总是选择记录的关键码(字)作为排序码。 如果待排序的表中含有多个排序码值相等的记录，用某种排序方法排序后，这些记录的相对次序不变，则说这种排序方法为稳定的（stable），否则是不稳定的。 按照待排序数据驻留的介质不同排序问题可分为内部排序(Internal sorting)和外部排序(External sorting)两类： 内排序: 待排序的表中记录可存放内存，整个排序过程都在内存进行，只涉及对内存的访问。 外排序: 待排序的表中含有巨量记录，无法存放到内存，整个排序过程都在外存进行，涉及对外存的访问。 按照排序的依据原则内部排序可分为：插入排序、交换排序、选择排序、归并排序和分配排序等五类。 插入排序顾名思义最好的情况是已经排好序:O(n), 最坏的情况是:O(n*n)该排序是稳定排序 请注意, 插入排序有大量的插入操作, 使用链表较为适宜 算法思路循环将数插入到已经排序的序列中, 知道未排序数组为空 算法实现123456789101112131415161718192021222324252627const long LMAX = 10; //顺序表最大长度struct rectype //记录类型定义&#123; keytype key;&#125;;struct SqList //顺序表类型定义&#123; unsigned long length; rectype r[LMAX];&#125;;void InsertSort(SqList &amp;L) //直接插入排序&#123; for (int i = 2; i &lt;= L.length; i++) &#123; L.r[0] = L.r[i]; //将第i个记录复制到L.r[0]中 int j = i - 1; //依次后移 while (L.r[0].key &lt; L.r[j].key) &#123; L.r[j + 1] = L.r[j]; j = j - 1; &#125; //插入待排序数 L.r[j + 1] = L.r[0]; &#125;&#125; 冒泡排序复杂度为O(n*n), 如果已经有序, 则 复杂度为O(0)该排序是稳定排序 算法思路对于具有n个元素的数组, 进行n-1 次遍历第 k 次遍历过程, 如果发现某元素小于元素[k-1], 交换两者.最终实现: 最小的数放在队头, 第二小的数放在第二个…….. 排序完成 希尔排序又叫递减增量排序 希尔排序听起来总让我想起崩坏学园所以我钦点了希尔 · 爱乐芙 作为本篇博文置顶图23333 希尔排序的性能大约为:O(n^3/2^), 这主要是因为他的递减增量希尔排序是不稳定的 算法思路 取某一增量d; 将数列按照增量d 分成若干组; 对若干组进行插入排序 降低增量d, 重复1, 2步骤直到d为1; 算法实现12345678910111213141516171819202122void shellSort(SqList &amp;L)&#123; int increment = L.length; do &#123; increment /= 2 //执行插入排序 for (int i = increment; i &lt; L.length; i++) &#123; rectype extra = L.r[i]; int j = i - increment; while (j &gt;= 0 &amp;&amp; (extra.key &lt; L.r[j].key)) &#123; L.r[j + increment] = L.r[j]; j = j - increment; &#125; L.r[j + increment] = extra; &#125; &#125; while (increment &gt; 1);&#125; 快速排序快速排序(Quick sort) 的基本思想是选取被排序表中某个关键码作为基准(pivot)，将表划分成左右两个子表： 左子表中各记录的关键码均小于或等于基准值，而右子表中各记录的关键码均大于或等于基准值。然后以同样的方法递归地处理这两个子表，直到完成全部记录的排序。该排序是不稳定排序 复杂度分析对含有n个记录的表，若算法总是以子表中间记录的关键码作为基准划分,最坏的情况(基准为最小或最大)是每次将将表分为含1个记录的子表和含n-1个记录的子表。需划分n次，比较次数为：n*(n-1)/2=O(n^2^) 若总是以子表的第一个记录的关键码作为基准划分, 当被排序的表是按关键码有序或逆序，将出现最坏的情况。设c(n)为用QuickSort算法对含有n个记录的表进行排序所作的比较次数, s(n)为交换次数，显然c(1)=0和s(1)=0。 算法将n个记录的表划分为r记录和n-r记录两个子表需比较n次。所以​ c(n)=n+c(r)+c(n-r)对于最坏情形:每次划分时r=1, n-r=n-1, 则有:​ c(n)=n+c(1)+c(n-1)=n+c(n-1)于是下列诸式成立:​ c(1)=0​ c(2)=2+c(1)=2​ c(3)=3+c(2)=3+2=5​ c(4)=4+c(3)=4+3+2=9​ ……..​ c(n)=n+c(n-1)=n+(n-1)+(n-2)+….+3+2=(n+2)(n-1)/2​ =(n2+n-2)/2=O(n2) 若 QuickSort 算法总是以表中关键码的中值作为基准划分,将出现最好的情况：每次将表分为两个长度大致相等的子表。​ c(n)≤n+2c(n/2)​ ≤n+2[n/2+2c(n/22)]=2n+4c(n/22)​ ≤2n+4[n/4+2c(n/23)]=3n+8c(n/23)​ ≤……..​ ≤kn+2kc(n/2k)=nlog2n+nc(1)=O(nlog2n)​ (这里：k=log2n )对于交换次数, 有$$ s(n)&lt;=O(nlog_2n) $$ 快速排序是不稳定的 算法实现12345678910111213141516171819202122232425262728293031void Qsort(int a[], int low, int high)&#123; if(low &gt;= high) &#123; return; &#125; int first = low; int last = high; int key = a[first];/*用字表的第一个记录作为枢轴*/ while(first &lt; last) &#123; while(first &lt; last &amp;&amp; a[last] &gt;= key) &#123; --last; &#125; a[first] = a[last];/*将比第一个小的移到低端*/ while(first &lt; last &amp;&amp; a[first] &lt;= key) &#123; ++first; &#125; a[last] = a[first]; /*将比第一个大的移到高端*/ &#125; a[first] = key;/*枢轴记录到位*/ Qsort(a, low, first-1); Qsort(a, first+1, high);&#125; 归并排序归并排序（merge sort）是归并操作上的一种有效的排序算法归并排序每次都是在相邻的数据中进行操作，在O(N*logN)的几种排序方法（快速排序，归并排序，希尔排序，堆排序）也是效率比较高的。 设数列长为N，将数列分开成小数列一共要logN步，每步都是一个合并有序数列的过程，时间复杂度可以记为O(N)，故一共为O(N*logN)。 算法思路对于整体无序的数列 递归(recursion)分割数列为左右两部分, 直至数列不可再分 对当前不可再分的左右数列进行归并 代码实现12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364#include&lt;iostream&gt;using namespace std;//归并排序void merge(int arr[], int front, int mid, int rear, int temp[]) &#123; int i = front, j = mid + 1, k = 0; while (i &lt;= mid &amp;&amp; j &lt;= rear) &#123; if (arr[i] &lt; arr[j]) &#123; temp[k++] = arr[j++]; &#125; else &#123; temp[k++] = arr[i++]; &#125; &#125; while (i &lt;= mid) &#123; temp[k++] = arr[i++]; &#125; while (j &lt;= rear) &#123; temp[k++] = arr[j++]; &#125; for (int i = 0; i &lt; k; i++) &#123; arr[front + i] = temp[i]; &#125;&#125;void recursive(int arr[],int front, int rear, int temp[]) &#123; if (front&lt;rear) &#123; int mid = (front + rear) / 2; recursive(arr, front, mid, temp); recursive(arr, mid + 1, rear, temp); merge(arr, front, mid, rear, temp); &#125;&#125;bool mergeSort(int arr[], int n) &#123; //辅助表空间, 避免数列数组被覆写, 省去临时声明空间的时间开销 int* temp = new int [n]; if (temp == NULL) &#123; return false; &#125; recursive(arr, 0, n - 1, temp); delete[] temp; return true;&#125;int main() &#123; int arr[8] = &#123; 12,12,123,45,654,78,96,2 &#125;; mergeSort(arr, 8); for (size_t i = 0; i &lt; 8; i++) &#123; cout &lt;&lt; arr[i] &lt;&lt; "\t"; &#125; system("pause");&#125; 堆排序堆排序是利用堆这种数据结构而设计的一种排序算法，它是一种选择排序.它的最坏，最好，平均时间复杂度均为O(nlogn)，它也是不稳定排序. 算法思路 将无需序列构建成一个堆，根据升序降序需求选择大顶堆或小顶堆; 将堆顶元素与末尾元素交换，将最大元素”沉”到数组末端; 重新调整结构，使其满足堆定义，然后继续交换堆顶元素与当前末尾元素，反复执行调整+交换步骤，直到整个序列有序。 代码实现1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859#include&lt;iostream&gt;using namespace std;void swap(int arr[], int front, int rear) &#123; int tmp = arr[front]; arr[front] = arr[rear]; arr[rear] = tmp;&#125;void adjustHeap(int arr[], int i, int len) &#123; int temp = arr[i]; for (int k = i * 2 + 1; k &lt; len; k = k * 2 + 1) &#123; if ((k + 1) &lt; len&amp;&amp;arr[k] &lt; arr[k + 1]) &#123; k++; &#125; if (arr[k] &gt; temp) &#123; arr[i] = arr[k]; i = k; &#125; else &#123; break; &#125; &#125; arr[i] = temp;&#125;void sort(int arr[], int len) &#123; //1. 构建大顶堆 for (int i = len / 2 - 1; i &gt;= 0; i--) &#123; adjustHeap(arr, i, len); &#125; //2. 交换堆顶元素和末尾元素, 调整堆 for (int i = len - 1; i &gt; 0; i--) &#123; swap(arr, 0, i); adjustHeap(arr, 0, i); &#125;&#125;int main() &#123; int arr[8] = &#123; 1,2,45,65,78,98,45,32 &#125;; sort(arr, 8); for (int i = 0; i &lt; 8; i++) &#123; cout &lt;&lt; arr[i] &lt;&lt; "\t"; &#125; system("pause");&#125; 基数排序基数排序 (radix sort) 属于”分配式排序” (distribution sort) , 重点在于对关键字进行 “分配” 和 “收集” , 而不是对关键字的比较.基数排序算法是稳定的, 时间复杂度是O(d*(n＋r)) 将表中n个记录分配到r个队列中去的时间为O(n), 收集时将r个队列连成一个表的时间O(r), 一次分配和收集的时间为O(n＋r), 由于算法对n个记录共进行了d遍分配和收集,所以共花费的时间为O(d*(n＋r)). 算法思路 将关键码按照位数最小/最大值分配入箱 按照箱子的顺序收集关键码 重复1，2步骤直到位数到达最大/最小值 代码实现最高位优先(Most Significant Digit first)，简称MSD最低位优先(Least Significant Digit first)，简称LSD下面采用LSD法，值得一提的是，这种实现比较耗费内存, 从理论上来说, 申请的数组空间利用率只有10%.123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475#include&lt;iostream&gt;/*顺序数组实现*/using namespace std;const int RADIX = 10;//桶数const int Max = 10;//桶容量int getDigit(int src, int pos) &#123; int temp = 1; for (int i = 0; i &lt; pos - 1; ++i) &#123; temp *= 10; &#125; return (src / temp) % 10;&#125;void radixSort_Array(int *src, int digits) &#123; int* tempArray[RADIX];//定义桶数 RADIX for (int i = 0; i &lt; RADIX; ++i)//定义桶容量 &#123; tempArray[i] = new int [Max + 1]; tempArray[i][0] = 0;//初始化为0 &#125; for (int pos = 1; pos &lt;= digits; ++pos) &#123; int tmp; for (int i = 0; i &lt; Max; ++i)//分配进桶 &#123; tmp = getDigit(src[i], pos);//获取指定位的数字 ++tempArray[tmp][0]; tempArray[tmp][tempArray[tmp][0]] = src[i]; &#125; int index = 0; for (int i = 0;i&lt;RADIX; ++i)//收集 &#123; for (int j = 1; j &lt;=tempArray[i][0]; ++j ) &#123; src[index++] = tempArray[i][j]; &#125; tempArray[i][0] = 0;//重置 &#125; cout &lt;&lt; endl; for (int i = 0; i &lt; Max; i++) &#123; cout &lt;&lt; src[i] &lt;&lt; "\t"; &#125; &#125;&#125;int main() &#123; int src[Max] = &#123; 12,123,123,14,56,78,56,12,456,789 &#125;; /*std::cout &lt;&lt; "最大三位数" &lt;&lt; std::endl; for (RADIX_t i = 0; i &lt; Max; i++) &#123; std::cin &gt;&gt; src[i]; cout &lt;&lt; endl; &#125;*/ for (int i = 0; i &lt; Max; i++) &#123; cout &lt;&lt; src[i] &lt;&lt; "\t"; &#125; radixSort_Array(src, 3); cout &lt;&lt; endl; for (int i = 0; i &lt; Max; i++) &#123; cout &lt;&lt; src[i]&lt;&lt;"\t"; &#125; system("pause");&#125; 查找算法查找操作的性能主要考虑时间复杂度, 整个查找过程主要是在关键字和查找表的数据上. 即平均查找长度.平均查找长度ASL(Average Search Length)：为确定记录在表中的位置，需和给定值进行比较的记录个数的期望值叫查找算法的平均查找长度。 $$ ASL=\sum_{n}^{i=1}p_{i}c_{i} ​$$ 顺序查找 对于每次查找均成功的情况下$$ ASL=\frac{n+1}{2}$$ 二分查找性能分析通过建立一个二叉查找树, 我们能很清晰的看到$$ ASL=log~2~(n+1)-1 分块查找分块查找，也叫索引顺序查找，算法实现除了需要查找表本身之外，还需要根据查找表建立一个索引表建立的索引表要求按照关键字进行升序排序，查找表要么整体有序，要么分块有序 分块有序指的是第二个子表中所有关键字都要大于第一个子表中的最大关键字，第三个子表的所有关键字都要大于第二个子表中的最大关键字，依次类推。 性能分析分块查找分为两个过程: 查找快可以采用顺序查找, 也可以采用折半查找 块内查找采用顺序查找 总体而言, 分块查找效率介于顺序查找和折半查找之间]]></content>
       <categories>
-        <category>学习</category>
+        <category>Human Learning</category>
       </categories>
       <tags>
+        <tag>Note</tag>
         <tag>Hobby</tag>
-        <tag>笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -68,8 +79,8 @@
         <category>Hexo</category>
       </categories>
       <tags>
-        <tag>施工中</tag>
-        <tag>021</tag>
+        <tag>Hexo</tag>
+        <tag>Tutorial</tag>
       </tags>
   </entry>
   <entry>
@@ -81,18 +92,18 @@
       </categories>
       <tags>
         <tag>Web Crawler</tag>
-        <tag>实例</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[推歌：A LETTER]]></title>
+    <title><![CDATA[A LETTER]]></title>
     <url>%2F2018%2F12%2F03%2F%E6%AD%8C%E6%9B%B2%E6%8E%A8%E8%8D%90The-Song-For-You%2F</url>
     <content type="text"><![CDATA[You don’t have to throw your life away 本来也不想写文字，但是不写一点文字,又怎么知道当时所思所想是什么，自己又是为什么要去写这篇博文呢? …… A LETTER 是由泽野弘之创作的插曲——也许提及高达UC会让他更容易被想起. 歌姬Cyua确实很适合去唱这首歌, 她的声线与舒缓空旷的乐音彼此交融, 编织出这首弥漫着伤感, 空灵以及希望的歌曲. 倘若你愿意闭上双眸, 浮现出的场景大概会是独角兽在孤独地进行着只属于自己的宇宙漫途, 但或许你需要知道的是, 这首歌曲更多在表达的是对自己的鼓励和对未来的希冀. 每个人都是宇宙中的独角兽, 命运指定的航线终将我们彼此分离, 忙碌追赶又有什么意义呢？命运的轨迹充满了错误, 等待我们的会是痛苦, 遗憾, 还是……希望? 指向正确的道路或许很艰辛, 可是总有一天能够到达尽头. Now you see light in pain. Kevin .]]></content>
       <categories>
-        <category>随笔</category>
+        <category>Thought</category>
       </categories>
       <tags>
-        <tag>私货</tag>
+        <tag>Unknown</tag>
+        <tag>Recommend</tag>
       </tags>
   </entry>
   <entry>
@@ -104,7 +115,6 @@
       </categories>
       <tags>
         <tag>Web Crawler</tag>
-        <tag>实例</tag>
       </tags>
   </entry>
   <entry>
@@ -116,7 +126,6 @@
       </categories>
       <tags>
         <tag>Web Crawler</tag>
-        <tag>实例</tag>
       </tags>
   </entry>
   <entry>
@@ -124,11 +133,10 @@
     <url>%2F2018%2F12%2F01%2FA-Whisper-To-The-World%2F</url>
     <content type="text"><![CDATA[NieR:Automata Everything that lives is designed to end.一切活着的事物，都注定要终结。We are perpetually trapped …我们被永远地囚禁……… in a never-ending spiral of life and death.……于永无止境的生死轮回之中。Is this a curse?这是一种诅咒？Or some kind of punishment?还是某种惩罚？I often think about the god who blessed us with this cryptic puzzle …我时常想起那用模糊的谜团祝福我们的神……… and wonder if we’ll ever have the chance to kill him.……并猜想我们是否终有弑神的机会。]]></content>
       <categories>
-        <category>随笔</category>
+        <category>Thoughts</category>
       </categories>
       <tags>
-        <tag>Ridiculous</tag>
-        <tag>Thought</tag>
+        <tag>Nier:Automata</tag>
       </tags>
   </entry>
   <entry>
@@ -136,7 +144,7 @@
     <url>%2F2018%2F11%2F30%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
       <tags>
-        <tag>hello</tag>
+        <tag>Hello</tag>
       </tags>
   </entry>
 </search>
