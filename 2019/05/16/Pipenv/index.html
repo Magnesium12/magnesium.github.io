@@ -125,7 +125,7 @@
 <meta property="og:site_name" content="12TH`s Cabin">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/05/15/5cdc36069cce451865.jpg">
-<meta property="og:updated_time" content="2019-05-16T12:17:06.111Z">
+<meta property="og:updated_time" content="2019-06-21T18:07:35.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pipenv">
 <meta name="twitter:image" content="https://i.loli.net/2019/05/15/5cdc36069cce451865.jpg">
@@ -440,12 +440,24 @@
                 
               
 
-              <time title="创建时间：2019-05-16 16:52:15 / 修改时间：20:17:06" itemprop="dateCreated datePublished" datetime="2019-05-16T16:52:15+08:00">2019-05-16</time>
+              <time title="创建时间：2019-05-16 16:52:15" itemprop="dateCreated datePublished" datetime="2019-05-16T16:52:15+08:00">2019-05-16</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-22 02:07:35" itemprop="dateModified" datetime="2019-06-22T02:07:35+08:00">2019-06-22</time>
               
             
           </span>
@@ -515,36 +527,45 @@
       
         <p><img src="https://i.loli.net/2019/05/15/5cdc36069cce451865.jpg" alt="pipenv.jpg"></p>
 <a id="more"></a>
-<h2 id="Pipenv"><a href="#Pipenv" class="headerlink" title="Pipenv"></a>Pipenv</h2><ul>
+<h1 id="Pipenv"><a href="#Pipenv" class="headerlink" title="Pipenv"></a>Pipenv</h1><ul>
 <li>一个独立且完整的 python 虚拟环境管理</li>
 <li>提供基于独立环境的独立 python 项目管理方法</li>
 <li>可以帮助我们摆脱多个项目的依赖库相互排斥的问题</li>
 </ul>
-<h3 id="为什么选择Pipenv"><a href="#为什么选择Pipenv" class="headerlink" title="为什么选择Pipenv"></a>为什么选择Pipenv</h3><ol>
+<h2 id="为什么选择Pipenv"><a href="#为什么选择Pipenv" class="headerlink" title="为什么选择Pipenv"></a>为什么选择Pipenv</h2><ol>
 <li>python 社区主流推荐</li>
 <li>自动记录第三方库依赖</li>
 <li>采用哈希校验，包管理操作更加安全</li>
 <li>可以根据 pipfile 和 pipfile.lock 快速创建配置虚拟环境</li>
 </ol>
-<h2 id="Let-s-go-ahead"><a href="#Let-s-go-ahead" class="headerlink" title="Let`s go ahead"></a>Let`s go ahead</h2><p>请注意，本篇文章默认操作系统为 <strong>Windows</strong>，python 版本为 <strong>python 3.7</strong></p>
-<h3 id="安装pipenv"><a href="#安装pipenv" class="headerlink" title="安装pipenv"></a>安装pipenv</h3><p>确保你的电脑正确安装了 python3 和 pip3</p>
+<h1 id="Let-s-go-ahead"><a href="#Let-s-go-ahead" class="headerlink" title="Let`s go ahead"></a>Let`s go ahead</h1><p>请注意，本篇文章全程默认操作系统为 <strong>Windows</strong>，python 版本默认为 <strong>python 3.7</strong></p>
+<h2 id="安装pipenv"><a href="#安装pipenv" class="headerlink" title="安装pipenv"></a>安装pipenv</h2><p>确保你的电脑正确安装了 python3 和 pip3</p>
 <div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python3 下安装方式</span></span><br><span class="line">pip install pipenv</span><br><span class="line"></span><br><span class="line"><span class="comment"># 同时存在 py2 和 py3</span></span><br><span class="line">pip3 install pipenv</span><br></pre></td></tr></table></figure></div>
-<h3 id="创建并激活env"><a href="#创建并激活env" class="headerlink" title="创建并激活env"></a>创建并激活env</h3><p>假设我们当前的资源管理器路径是 <code>D:\\project</code> ，</p>
+<h2 id="创建并激活env"><a href="#创建并激活env" class="headerlink" title="创建并激活env"></a>创建并激活env</h2><p>假设我们当前的资源管理器路径是 <code>D:\\project</code> ，</p>
 <p>我们需要在project文件夹下创建一个 Django 文件夹，</p>
 <p>然后在其中创建项目的虚拟环境</p>
 <div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建虚拟环境</span></span><br><span class="line">mkdir django</span><br><span class="line">cd django</span><br><span class="line">pipenv --python <span class="number">3.7</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看相关信息</span></span><br><span class="line">pipenv --where</span><br><span class="line">pipenv --venv</span><br><span class="line">pipenv --py</span><br><span class="line"></span><br><span class="line"><span class="comment"># 激活</span></span><br><span class="line">pipenv shell</span><br></pre></td></tr></table></figure></div>
-<h3 id="激活状态操作"><a href="#激活状态操作" class="headerlink" title="激活状态操作"></a>激活状态操作</h3><p>激活状态下操作主要是包管理和 .py 文件执行</p>
-<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">python xx.py</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装与卸载</span></span><br><span class="line">pipenv install [第三方包]</span><br><span class="line">pipenv uninstall [第三方包] </span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果不输入第三方包名，会发生什么呢？</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示依赖库结构</span></span><br><span class="line">pipenv graph</span><br><span class="line"></span><br><span class="line"><span class="comment"># 调出帮助 </span></span><br><span class="line">pipenv --help</span><br><span class="line"></span><br><span class="line"><span class="comment"># 退出环境</span></span><br><span class="line">exit</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除当前虚拟环境</span></span><br><span class="line">pipenv -rm</span><br></pre></td></tr></table></figure></div>
+<h2 id="激活状态操作"><a href="#激活状态操作" class="headerlink" title="激活状态操作"></a>激活状态操作</h2><p>激活状态下操作主要是包管理和 .py 文件执行</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">python xx.py</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装与卸载</span></span><br><span class="line"></span><br><span class="line">pipenv install [第三方包]</span><br><span class="line"></span><br><span class="line">pipenv uninstall [第三方包] </span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果不输入第三方包名，会发生什么呢？</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示依赖库结构</span></span><br><span class="line"></span><br><span class="line">pipenv graph</span><br><span class="line"></span><br><span class="line"><span class="comment"># 调出帮助*</span></span><br><span class="line"></span><br><span class="line">pipenv --help</span><br><span class="line"></span><br><span class="line"><span class="comment"># 退出环境</span></span><br><span class="line"></span><br><span class="line">exit</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除当前虚拟环境</span></span><br><span class="line"></span><br><span class="line">pipenv -rm</span><br></pre></td></tr></table></figure></div>
 <p>建议多使用 <code>pipenv --help</code> 命令</p>
-<h3 id="项目同步"><a href="#项目同步" class="headerlink" title="项目同步"></a>项目同步</h3><p>必需文件：</p>
+<h2 id="项目同步"><a href="#项目同步" class="headerlink" title="项目同步"></a>项目同步</h2><p>必需文件：</p>
 <ul>
-<li>Pipfle 和 Pipfile.lock</li>
-<li>已完成的逻辑代码</li>
+<li><p>Pipfle 和 Pipfile.lock</p>
+</li>
+<li><p>已完成的逻辑代码</p>
+</li>
 </ul>
-<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="CMAKE"><figure class="iseeu highlight /cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拉取项目到本地</span></span><br><span class="line"></span><br><span class="line">cd [<span class="keyword">project</span>]</span><br><span class="line"></span><br><span class="line">pipenv <span class="keyword">install</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 大功告成</span></span><br></pre></td></tr></table></figure></div>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拉取项目到本地</span></span><br><span class="line"></span><br><span class="line">cd [project]</span><br><span class="line"></span><br><span class="line">pipenv install</span><br><span class="line"></span><br><span class="line"><span class="comment"># 大功告成</span></span><br></pre></td></tr></table></figure></div>
 <blockquote>
-<p><code>pipenv install</code> 无参数命令会首先检查当前目录中的 pipfile<br>若有，则立刻安装符合 pipfile 和 pipfile.lock 的虚拟环境和依赖库<br>若无，什么也不会发生</p>
+<p><code>pipenv install</code>无参数命令会首先检查当前目录中的 pipfile</p>
+<p>若有，则立刻安装符合 pipfile 和 pipfile.lock 的虚拟环境和依赖库</p>
+<p>若无，什么也不会发生</p>
 </blockquote>
+<h2 id="pipenv-环境变量"><a href="#pipenv-环境变量" class="headerlink" title="pipenv 环境变量"></a>pipenv 环境变量</h2><p>pipenv内置了很多环境变量，可以通过设置这些环境变量来配置<code>pipenv</code></p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="HAML"><figure class="iseeu highlight /haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">$ pipenv --envs</span><br><span class="line">The following environment variables can be set, to do various things:</span><br><span class="line"></span><br><span class="line">  -<span class="ruby"> PIPENV_MAX_DEPTH</span></span><br><span class="line"><span class="ruby">  - PIPENV_SHELL</span></span><br><span class="line"><span class="ruby">  - PIPENV_DOTENV_LOCATION</span></span><br><span class="line"><span class="ruby">  - PIPENV_HIDE_EMOJIS</span></span><br><span class="line"><span class="ruby">  - PIPENV_CACHE_DIR</span></span><br><span class="line"><span class="ruby">  - PIPENV_VIRTUALENV</span></span><br><span class="line"><span class="ruby">  - PIPENV_MAX_SUBPROCESS</span></span><br><span class="line"><span class="ruby">  - PIPENV_COLORBLIND</span></span><br><span class="line"><span class="ruby">  - PIPENV_VENV_IN_PROJECT <span class="comment"># 在项目根路径下创建虚拟环境</span></span></span><br><span class="line"><span class="ruby">  - PIPENV_MAX_ROUNDS</span></span><br><span class="line"><span class="ruby">  - PIPENV_USE_SYSTEM</span></span><br><span class="line"><span class="ruby">  - PIPENV_SHELL_COMPAT</span></span><br><span class="line"><span class="ruby">  - PIPENV_USE_HASHES</span></span><br><span class="line"><span class="ruby">  - PIPENV_NOSPIN</span></span><br><span class="line"><span class="ruby">  - PIPENV_PIPFILE</span></span><br><span class="line"><span class="ruby">  - PIPENV_INSTALL_TIMEOUT</span></span><br><span class="line"><span class="ruby">  - PIPENV_YES</span></span><br><span class="line"><span class="ruby">  - PIPENV_SHELL_FANCY</span></span><br><span class="line"><span class="ruby">  - PIPENV_DONT_USE_PYENV</span></span><br><span class="line"><span class="ruby">  - PIPENV_DONT_LOAD_ENV</span></span><br><span class="line"><span class="ruby">  - PIPENV_DEFAULT_PYTHON_VERSION <span class="comment"># 设置创建虚拟环境时默认的python版本信息，如: 3.6</span></span></span><br><span class="line"><span class="ruby">  - PIPENV_SKIP_VALIDATION</span></span><br><span class="line"><span class="ruby">  - PIPENV_TIMEOUT</span></span><br></pre></td></tr></table></figure></div>
+<p>例如我会选择设置 PIPENV_VENV_IN_PROJECT = 1 ，使pipenv 的虚拟环境默认放在项目根目录下</p>
+<h2 id="修改pipenv-下载源"><a href="#修改pipenv-下载源" class="headerlink" title="修改pipenv 下载源"></a>修改pipenv 下载源</h2><p>pipfile中修改下载源为阿里源，如下</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="INI"><figure class="iseeu highlight /ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[[source]]</span></span><br><span class="line"><span class="attr">name</span> = <span class="string">"pypi"</span></span><br><span class="line"><span class="attr">url</span> = <span class="string">"https://mirrors.aliyun.com/pypi/simple"</span></span><br><span class="line"><span class="attr">verify_ssl</span> = <span class="literal">true</span></span><br></pre></td></tr></table></figure></div>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>所以为什么不用 pycharm 呢，<del>JB快点给我五毛广告费</del></p>
 
       
@@ -697,7 +718,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -720,7 +741,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -767,7 +790,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">17</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -835,7 +862,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pipenv"><span class="nav-number">1.</span> <span class="nav-text">Pipenv</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么选择Pipenv"><span class="nav-number">1.1.</span> <span class="nav-text">为什么选择Pipenv</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Let-s-go-ahead"><span class="nav-number">2.</span> <span class="nav-text">Let`s go ahead</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装pipenv"><span class="nav-number">2.1.</span> <span class="nav-text">安装pipenv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建并激活env"><span class="nav-number">2.2.</span> <span class="nav-text">创建并激活env</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#激活状态操作"><span class="nav-number">2.3.</span> <span class="nav-text">激活状态操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目同步"><span class="nav-number">2.4.</span> <span class="nav-text">项目同步</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Pipenv"><span class="nav-number">1.</span> <span class="nav-text">Pipenv</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么选择Pipenv"><span class="nav-number">1.1.</span> <span class="nav-text">为什么选择Pipenv</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Let-s-go-ahead"><span class="nav-number">2.</span> <span class="nav-text">Let`s go ahead</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装pipenv"><span class="nav-number">2.1.</span> <span class="nav-text">安装pipenv</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建并激活env"><span class="nav-number">2.2.</span> <span class="nav-text">创建并激活env</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#激活状态操作"><span class="nav-number">2.3.</span> <span class="nav-text">激活状态操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目同步"><span class="nav-number">2.4.</span> <span class="nav-text">项目同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pipenv-环境变量"><span class="nav-number">2.5.</span> <span class="nav-text">pipenv 环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改pipenv-下载源"><span class="nav-number">2.6.</span> <span class="nav-text">修改pipenv 下载源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">2.7.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
             
 
           </div>
