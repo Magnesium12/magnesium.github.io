@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zlee.xyz/"/>
-  <updated>2019-05-28T05:18:22.164Z</updated>
+  <updated>2019-07-02T21:17:51.589Z</updated>
   <id>https://zlee.xyz/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zlee.xyz/2019/05/27/%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     <id>https://zlee.xyz/2019/05/27/逆波兰表达式/</id>
     <published>2019-05-27T12:13:44.000Z</published>
-    <updated>2019-05-28T05:18:22.164Z</updated>
+    <updated>2019-07-02T21:17:51.589Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>逆波兰表示法（Reverse Polish notation，RPN，或逆波兰记法），是一种是由波兰数学家扬·武卡谢维奇1920年引入的数学表达式方式，在逆波兰记法中，所有操作符置于操作数的后面，因此也被称为后缀表示法。逆波兰记法不需要括号来标识操作符的优先级。</p><p>wikipedia</p></blockquote><a id="more"></a><h2 id="逆波兰式运算"><a href="#逆波兰式运算" class="headerlink" title="逆波兰式运算"></a>逆波兰式运算</h2><ul><li>从左向右读取表达式</li><li>遇到数字压入栈中</li><li>遇到运算符则两数字出栈进行运算，运算结果压栈</li></ul><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre><code class="C++"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span><span class="comment">// to do</span><span class="comment">// 没想到吧，哈哈哈哈哈</span><span class="comment">// 以后再填坑，老子现在要复习</span></code></pre>]]></content>
     
