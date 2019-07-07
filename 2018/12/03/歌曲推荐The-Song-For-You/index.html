@@ -23,6 +23,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
 
 
 
@@ -596,6 +600,26 @@
 
       
       
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
       
 
       
@@ -683,7 +707,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -934,10 +958,10 @@
 
 
 
-  
-  
 
 
+  
+  
 
 
 
@@ -971,7 +995,7 @@
 
   
   
-    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-three@1.0.0/three-waves.min.js"></script>
+    <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-three@1.0.0/canvas_lines.min.js"></script>
   
 
   
@@ -1406,6 +1430,27 @@
 
   
   
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "box";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
 
   
 
@@ -1424,7 +1469,6 @@
 
 
   
-
   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
   <script src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
   <script async src="/js/cursor/explosion.min.js"></script>
