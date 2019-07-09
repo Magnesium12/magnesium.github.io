@@ -130,7 +130,7 @@
 <meta property="og:site_name" content="12TH`s Cabin">
 <meta property="og:description" content="当我按下那个F5之前，一切都是那么的美好">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-09T15:31:19.802Z">
+<meta property="og:updated_time" content="2019-07-09T15:34:23.978Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Confusing &#39;for&#39; in C++">
 <meta name="twitter:description" content="当我按下那个F5之前，一切都是那么的美好">
@@ -445,7 +445,7 @@
                 
               
 
-              <time title="创建时间：2019-07-09 22:24:25 / 修改时间：23:31:19" itemprop="dateCreated datePublished" datetime="2019-07-09T22:24:25+08:00">2019-07-09</time>
+              <time title="创建时间：2019-07-09 22:24:25 / 修改时间：23:34:23" itemprop="dateCreated datePublished" datetime="2019-07-09T22:24:25+08:00">2019-07-09</time>
             
 
             
@@ -518,7 +518,7 @@
       
 
       
-        <p>当我按下那个F5之前，一切都是那么的美好</p>
+        <p></p><p blockquote="" class="centerquote"><i>当我按下那个F5之前，一切都是那么的美好</i></p>
 <a id="more"></a>
 <h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>如何复制一个数组？</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* B为被复制数组</span></span><br><span class="line"><span class="comment">* B._size= count</span></span><br><span class="line"><span class="comment">* A._size= count</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">// 普通版本</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>; i &lt; count ; i++)</span><br><span class="line">&#123;</span><br><span class="line">    A[i] = B[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 我偏不这么干</span></span><br><span class="line"><span class="comment">// 我选择</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>; i&lt; count; A[i]=B[i++]);<span class="comment">// 赋值从A[1]开始....在_CAPACITY==_size的情况下，数组越界</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 鬼畜的版本</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i =<span class="number">0</span>; i&lt; count; A[i++]=B[i]);<span class="comment">//这次不会越界，但是B[0]压根没进来啊</span></span><br></pre></td></tr></table></figure>
