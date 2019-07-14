@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Confusing 'for' in C++]]></title>
     <url>%2F2019%2F07%2F09%2FConfusing-for-in-C%2F</url>
-    <content type="text"><![CDATA[当我按下那个F5之前，一切都是那么的美好 Question如何复制一个数组？ 123456789101112131415161718/** B为被复制数组* B._size= count* A._size= count*/// 普通版本for(int i =0; i &lt; count ; i++)&#123; A[i] = B[i];&#125;// 我偏不这么干// 我选择for(int i =0; i&lt; count; A[i]=B[i++]);// 赋值从A[1]开始....在_CAPACITY==_size的情况下，数组越界// 鬼畜的版本for(int i =0; i&lt; count; A[i++]=B[i]);//这次不会越界，但是B[0]压根没进来啊 我认为关键在于for语句三段式中，表达式3到底是个什么鬼东西 至于到底为什么 emmmm, I have no idea. Answer如果有知道的朋友可以说一下呀Orz]]></content>
+    <content type="text"><![CDATA[当我按下那个F5之前，一切都是那么的美好 Question如何复制一个数组？ 123456789101112131415161718/** B为被复制数组* B._size= count* A._size= count*/// 普通版本for(int i =0; i &lt; count ; i++)&#123; A[i] = B[i];&#125;// 我偏不这么干// 我选择for(int i =0; i&lt; count; A[i]=B[i++]);// 赋值从A[1]开始....在_CAPACITY==_size的情况下，数组越界// 鬼畜的版本for(int i =0; i&lt; count; A[i++]=B[i]);//这次不会越界，但是B[0]压根没进来啊 我认为关键在于for语句三段式中，表达式3到底是个什么鬼东西 至于到底为什么 emmmm, I have no idea. Answer 2019年7月14日18点08分更新 自增运算符优先级大于[]，问题结束 思考题1234int i = 1;int j = (++i)+(++i); j 等于？]]></content>
       <categories>
         <category>C++</category>
       </categories>
