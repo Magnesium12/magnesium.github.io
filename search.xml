@@ -253,8 +253,8 @@
         <category>Thoughts</category>
       </categories>
       <tags>
-        <tag>memoria</tag>
         <tag>unknown</tag>
+        <tag>memoria</tag>
       </tags>
   </entry>
   <entry>
@@ -607,10 +607,22 @@ T为参数类型（int、double等）</li>
     <content><![CDATA[<p blockquote class="centerquote"><i>谨以此文, 纪念一个误入NexT坑的年轻人</i></blockquote>
 
 <a id="more"></a>
-<h2 id="一点提示"><a href="#一点提示" class="headerlink" title="一点提示"></a>一点提示</h2><blockquote>
-<p>Tips:<br><code>hexo s</code>后可以直接本地调试，也就是更改文件保存后，Hexo 后台会自动重新渲染文件，所以只要稍等片刻，浏览器刷新一下就能看到效果。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ul>
+<li><p>调试相关</p>
+<blockquote>
+<p><code>hexo s</code>后可以直接本地调试，也就是更改文件保存后，Hexo 后台会自动重新渲染文件，所以只要稍等片刻，浏览器刷新一下就能看到效果。</p>
 </blockquote>
-<h2 id="无序列表圆点"><a href="#无序列表圆点" class="headerlink" title="无序列表圆点"></a>无序列表圆点</h2><p>不喜欢默认空心圆无序列表，我们换成实心的列表：</p>
+</li>
+<li><p>Next 版本相关</p>
+<blockquote>
+<p>对于 Next Version &gt;=7.0 的同学，原本的 custom.styl 方法<strong>已经失效</strong>。</p>
+</blockquote>
+</li>
+</ul>
+<p>新方案需要在<code>Next\_config.yml</code>中写入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">custom_file_path:</span><br><span class="line">   style: source&#x2F;_data&#x2F;styles.styl</span><br></pre></td></tr></table></figure>
+<p>并将<code>style.style</code>文件置入<code>hexo\source\_data\</code>中</p>
+<h2 id="无序列表圆点"><a href="#无序列表圆点" class="headerlink" title="无序列表圆点"></a>无序列表圆点</h2><p>我比较喜欢实心无序列表：</p>
 <p>主题目录：</p>
 <p><code>source/css/_common/components/post/post-expand.styl:</code></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ul li &#123; list-style: disc; &#125;</span><br></pre></td></tr></table></figure>
@@ -639,7 +651,7 @@ T为参数类型（int、double等）</li>
 <p>在站点/主题配置文件_config.yml中追加</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Live2D</span><br><span class="line">## https:&#x2F;&#x2F;github.com&#x2F;xiazeyu&#x2F;live2d-widget.js</span><br><span class="line">## https:&#x2F;&#x2F;l2dwidget.js.org&#x2F;docs&#x2F;class&#x2F;src&#x2F;index.js~L2Dwidget.html#instance-method-init</span><br><span class="line">live2d:</span><br><span class="line">  enable: true</span><br><span class="line">  scriptFrom: local</span><br><span class="line">  pluginRootPath: live2dw&#x2F;</span><br><span class="line">  pluginJsPath: lib&#x2F;</span><br><span class="line">  pluginModelPath: assets&#x2F;</span><br><span class="line">  tagMode: false</span><br><span class="line">  debug: false</span><br><span class="line">  model:</span><br><span class="line">    use: live2d-widget-model-koharu</span><br><span class="line">    scale: 1</span><br><span class="line">    hHeadPos: 0.5</span><br><span class="line">    vHeadPos: 0.618</span><br><span class="line">  display:</span><br><span class="line">    superSample: 1</span><br><span class="line">    width: 150</span><br><span class="line">    height: 300</span><br><span class="line">    position: left</span><br><span class="line">    hOffset: 20</span><br><span class="line">    vOffset: 0</span><br><span class="line">  mobile:</span><br><span class="line">    show: true</span><br><span class="line">    scale: 0.5</span><br><span class="line">  react:</span><br><span class="line">    opacityDefault: 0.7</span><br><span class="line">    opacityOnHover: 0.2</span><br></pre></td></tr></table></figure>
 <p>大小方向自行调参, 重新生成即可. 如果生成出现<strong>YAML 解析错误</strong>, 请检查是否正确采用<code>tab</code>缩进.</p>
-<h2 id="设置代码块"><a href="#设置代码块" class="headerlink" title="设置代码块"></a>设置代码块</h2><p>这是一个很长的故事…….</p>
+<h2 id="设置代码块"><a href="#设置代码块" class="headerlink" title="设置代码块"></a>设置代码块</h2><p>因部分原因，效果稍有瑕疵，已放弃</p>
 ]]></content>
       <categories>
         <category>Hexo</category>
