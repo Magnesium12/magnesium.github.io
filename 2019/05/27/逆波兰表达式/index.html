@@ -15,11 +15,11 @@
 
 
 <html class="theme-next muse use-motion" lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
-<meta name="theme-color" content="#222">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
 
 
 
@@ -66,7 +66,7 @@
   
     
     
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Arial:300,300italic,400,400italic,700,700italic|Tahoma:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Arial:300,300italic,400,400italic,700,700italic|Tahoma:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"/>
   
 
 
@@ -74,9 +74,9 @@
 
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0"/>
 
-<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+<link rel="stylesheet" href="/css/main.css?v=7.2.0"/>
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180x180.png?v=7.2.0">
@@ -127,27 +127,30 @@
 
 
   <meta name="description" content="逆波兰表示法（Reverse Polish notation，RPN，或逆波兰记法），是一种是由波兰数学家扬·武卡谢维奇1920年引入的数学表达式方式，在逆波兰记法中，所有操作符置于操作数的后面，因此也被称为后缀表示法。逆波兰记法不需要括号来标识操作符的优先级。 wikipedia">
-<meta name="keywords" content="C++,dataStructure">
 <meta property="og:type" content="article">
 <meta property="og:title" content="逆波兰式相关">
-<meta property="og:url" content="https://zlee.xyz/2019/05/27/逆波兰表达式/index.html">
-<meta property="og:site_name" content="12TH`s Cabin">
+<meta property="og:url" content="https://zlee.xyz/2019/05/27/%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.html">
+<meta property="og:site_name" content="12TH&#96;s Cabin">
 <meta property="og:description" content="逆波兰表示法（Reverse Polish notation，RPN，或逆波兰记法），是一种是由波兰数学家扬·武卡谢维奇1920年引入的数学表达式方式，在逆波兰记法中，所有操作符置于操作数的后面，因此也被称为后缀表示法。逆波兰记法不需要括号来标识操作符的优先级。 wikipedia">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-16T05:35:40.740Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-05-27T12:13:44.000Z">
+<meta property="article:modified_time" content="2019-07-16T05:35:40.740Z">
+<meta property="article:author" content="Magnesium">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="dataStructure">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="逆波兰式相关">
-<meta name="twitter:description" content="逆波兰表示法（Reverse Polish notation，RPN，或逆波兰记法），是一种是由波兰数学家扬·武卡谢维奇1920年引入的数学表达式方式，在逆波兰记法中，所有操作符置于操作数的后面，因此也被称为后缀表示法。逆波兰记法不需要括号来标识操作符的优先级。 wikipedia">
 
 
+  
 
-  <link rel="alternate" href="/atom.xml" title="12TH`s Cabin" type="application/atom+xml">
+
+  <link rel="alternate" href="/atom.xml" title="12TH`s Cabin" type="application/atom+xml"/>
 
 
 
   
   
-  <link rel="canonical" href="https://zlee.xyz/2019/05/27/逆波兰表达式/">
+  <link rel="canonical" href="https://zlee.xyz/2019/05/27/%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
 
 
 
@@ -196,7 +199,7 @@
   </style>
 </noscript>
 
-</head>
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
@@ -256,7 +259,7 @@
 
     
 
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+    <a href="/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-home&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;首页</a>
 
   </li>
         
@@ -272,7 +275,7 @@
 
     
 
-    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+    <a href="/about/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-user&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;关于</a>
 
   </li>
         
@@ -288,7 +291,7 @@
 
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+    <a href="/tags/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-tags&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;标签</a>
 
   </li>
         
@@ -304,7 +307,7 @@
 
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+    <a href="/categories/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-th&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;分类</a>
 
   </li>
         
@@ -320,7 +323,7 @@
 
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+    <a href="/archives/" rel="section">&lt;i class&#x3D;&quot;menu-item-icon fa fa-fw fa-archive&quot;&gt;&lt;&#x2F;i&gt; &lt;br&#x2F;&gt;归档</a>
 
   </li>
 
@@ -331,7 +334,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br/>搜索</a>
         </li>
       
     </ul>
@@ -354,7 +357,9 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -381,7 +386,7 @@
 
   
 
-  <a href="https://github.com/magnesium12" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+  <a href="https://github.com/magnesium12" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank">&lt;svg width&#x3D;&quot;80&quot; height&#x3D;&quot;80&quot; viewBox&#x3D;&quot;0 0 250 250&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;path d&#x3D;&quot;M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z&quot;&gt;&lt;&#x2F;path&gt;&lt;path d&#x3D;&quot;M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2&quot; fill&#x3D;&quot;currentColor&quot; style&#x3D;&quot;transform-origin: 130px 106px;&quot; class&#x3D;&quot;octo-arm&quot;&gt;&lt;&#x2F;path&gt;&lt;path d&#x3D;&quot;M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z&quot; fill&#x3D;&quot;currentColor&quot; class&#x3D;&quot;octo-body&quot;&gt;&lt;&#x2F;path&gt;&lt;&#x2F;svg&gt;</a>
 
 
 
@@ -408,16 +413,16 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zlee.xyz/2019/05/27/逆波兰表达式/">
+    <link itemprop="mainEntityOfPage" href="https://zlee.xyz/2019/05/27/%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Magnesium">
-      <meta itemprop="description" content="Everything that lives is designed to end.">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="Magnesium"/>
+      <meta itemprop="description" content="Everything that lives is designed to end."/>
+      <meta itemprop="image" content="/images/avatar.jpg"/>
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="12TH`s Cabin">
+      <meta itemprop="name" content="12TH`s Cabin"/>
     </span>
 
     
@@ -498,8 +503,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/05/27/逆波兰表达式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/27/逆波兰表达式/" itemprop="commentCount"></span>
+                <a href="/2019/05/27/%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/27/%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -510,7 +515,8 @@
 
           
             <span class="post-meta-item">
-              <span class="post-meta-item-icon">
+              <span class="post-meta-item-icon"
+              >
                 <i class="fa fa-eye"></i>
                  阅读次数： 
                 <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
@@ -518,9 +524,29 @@
             </span>
           
 
-          <br>
+          <br/>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span title="本文字数">244</span>
+            </span>
           
 
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span title="阅读时长">1 分钟</span>
+            </span>
           
 
           
@@ -543,6 +569,7 @@
 <p>wikipedia</p>
 </blockquote>
 <a id="more"></a>
+
 <h2 id="逆波兰式运算"><a href="#逆波兰式运算" class="headerlink" title="逆波兰式运算"></a>逆波兰式运算</h2><ul>
 <li>从左向右读取表达式</li>
 <li>遇到数字压入栈中</li>
@@ -554,8 +581,7 @@
 
 <span class="comment">// 没想到吧，哈哈哈哈哈</span>
 
-<span class="comment">// 以后再填坑，老子现在要复习</span>
-</code></pre>
+<span class="comment">// 以后再填坑，老子现在要复习</span></code></pre>
 
       
     </div>
@@ -590,10 +616,10 @@
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="https://zlee.xyz/2019/05/27/逆波兰表达式/" title="逆波兰式相关">https://zlee.xyz/2019/05/27/逆波兰表达式/</a>
+    <a href="https://zlee.xyz/2019/05/27/%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="逆波兰式相关">https:&#x2F;&#x2F;zlee.xyz&#x2F;2019&#x2F;05&#x2F;27&#x2F;%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F&#x2F;</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank">&lt;i class&#x3D;&quot;fa fa-fw fa-creative-commons&quot;&gt;&lt;&#x2F;i&gt;BY-NC-SA</a> 许可协议。转载请注明出处！</li>
 </ul>
 
       </div>
@@ -695,7 +721,9 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Magnesium">
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Magnesium"/>
             
               <p class="site-author-name" itemprop="name">Magnesium</p>
               <div class="site-description motion-element" itemprop="description">Everything that lives is designed to end.</div>
@@ -706,7 +734,7 @@
               
                 <div class="site-state-item site-state-posts">
                 
-                  <a href="/archives/">
+                  <a href="/archives/%20%7C%7C%20archive">
                 
                     <span class="site-state-item-count">16</span>
                     <span class="site-state-item-name">日志</span>
@@ -720,7 +748,7 @@
                 <div class="site-state-item site-state-categories">
                   
                     
-                      <a href="/categories/">
+                      <a href="/categories/%20%7C%7C%20th">
                     
                   
                     
@@ -749,7 +777,7 @@
                 <div class="site-state-item site-state-tags">
                   
                     
-                      <a href="/tags/">
+                      <a href="/tags/%20%7C%7C%20tags">
                     
                   
                     
@@ -822,7 +850,7 @@
                   
                     
                   
-                  <a href="https://github.com/magnesium12" title="GitHub &rarr; https://github.com/magnesium12" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  <a href="https://github.com/magnesium12" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;magnesium12" rel="noopener" target="_blank">&lt;i class&#x3D;&quot;fa fa-fw fa-github&quot;&gt;&lt;&#x2F;i&gt;GitHub</a>
                 </span>
               
                 <span class="links-of-author-item">
@@ -833,7 +861,7 @@
                   
                     
                   
-                  <a href="mailto:kl248310@gmail.com" title="E-Mail &rarr; mailto:kl248310@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  <a href="mailto:kl248310@gmail.com" title="E-Mail &amp;rarr; mailto:kl248310@gmail.com" rel="noopener" target="_blank">&lt;i class&#x3D;&quot;fa fa-fw fa-envelope&quot;&gt;&lt;&#x2F;i&gt;E-Mail</a>
                 </span>
               
                 <span class="links-of-author-item">
@@ -844,7 +872,7 @@
                   
                     
                   
-                  <a href="https://web.okjike.com/user/558725b3-41e5-41fa-81aa-beb164ad71e6/" title="Jike &rarr; https://web.okjike.com/user/558725b3-41e5-41fa-81aa-beb164ad71e6/" rel="noopener" target="_blank"><i class="fa fa-fw fa-globe"></i>Jike</a>
+                  <a href="https://web.okjike.com/user/558725b3-41e5-41fa-81aa-beb164ad71e6/" title="Jike &amp;rarr; https:&#x2F;&#x2F;web.okjike.com&#x2F;user&#x2F;558725b3-41e5-41fa-81aa-beb164ad71e6&#x2F;" rel="noopener" target="_blank">&lt;i class&#x3D;&quot;fa fa-fw fa-globe&quot;&gt;&lt;&#x2F;i&gt;Jike</a>
                 </span>
               
             </div>
@@ -858,7 +886,7 @@
               
               
               
-              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank">&lt;img src&#x3D;&quot;&#x2F;images&#x2F;cc-by-nc-sa.svg&quot; alt&#x3D;&quot;Creative Commons&quot;&#x2F;&gt;</a>
              </div>
           
 
@@ -912,7 +940,21 @@
   <span class="author" itemprop="copyrightHolder">Magnesium</span>
 
   
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">41k</span>
+  
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">37 分钟</span>
   
 </div>
 
