@@ -1,0 +1,9 @@
+@import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@5.2/distr/fira_code.css);
+
+@font-face{
+    font-family: 'FiraCode';
+    src : url('//cdn.jsdelivr.net/gh/tonsky/FiraCode@5.2/distr/fira_code.css');
+}
+html, body, .markdown-body {
+    font-family: 'FiraCode','Noto Sans SC', sans-serif;
+}
