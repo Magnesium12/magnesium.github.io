@@ -1,0 +1,599 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="前言C++11之后由于新概念右值引用[1]的引入，出现了左值右值和临终值[2]。基于此，C++11在语言层面实现了**移动语义(move semantic)和完美转发(perfect forwarding)**，也导致了咱这个 C++0x 选手的一头雾水，由此记录一下关于「三值」、移动语义及完美转发的学习总结">
+  <meta name="author" content="YuXiu">
+  <meta name="keywords" content="">
+  
+  <title>rvalue reference - YuXiu`s Space</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.9a","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>YuXiu`s World</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="rvalue reference">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-04-24 09:30" pubdate>
+        April 24, 2021 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">rvalue reference</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：April 24, 2021 pm
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>C++11之后由于新概念<strong>右值引用</strong><sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="T&amp;&amp; x，绑定到右值上的引用，与此对应的是 T&amp; x，左值引用
+">[1]</span></a></sup>的引入，出现了左值右值和临终值<sup id="fnref:2" class="footnote-ref"><a href="#fn:2" rel="footnote"><span class="hint--top hint--rounded" aria-label="eXpiring value，译名有将亡值、临终值等，这里采取维基百科翻译
+">[2]</span></a></sup>。基于此，C++11在语言层面实现了**移动语义(move semantic)<strong>和</strong>完美转发(perfect forwarding)**，也导致了咱这个 C++0x 选手的一头雾水，由此记录一下关于「三值」、移动语义及完美转发的学习总结</p>
+<span id="more"></span>
+
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><blockquote>
+<p>本篇文章参考:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/cpp/language/value_category">「cpprefrence.com——Value_categories」</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%8F%B3%E5%80%BC%E5%BC%95%E7%94%A8">「右值引用」- 维基百科</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zpcdbky/p/5275959.html">「话说C++中的左值、纯右值、临终值」 - 同勉共进.cnblogs</a></li>
+<li> <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/cb82c8b72c6b">「C++右值引用与移动构造函数」 - 深红的眼眸.简书</a></li>
+</ul>
+</blockquote>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="预备知识：表达式-Expression"><a href="#预备知识：表达式-Expression" class="headerlink" title="预备知识：表达式(Expression)"></a>预备知识：表达式(Expression)</h3><p><strong>C++表达式定义</strong> : 由<strong>运算符(operator)</strong> 和 <strong>运算对象(operand)</strong> 构成, 运算对象即操作数、文字和变量名称。</p>
+<p>字面值(literal)和变量(variable)是最简单的表达式</p>
+<h3 id="Before-C-11"><a href="#Before-C-11" class="headerlink" title="Before C++11"></a>Before C++11</h3><p><strong>C++ 11之前</strong>，我们仅讨论表达式相对于等式的左右值，显然具有等式的表达式左边的值具名且能够用 <code>&amp;</code>取址，等式右边无法取址或者取址后无意义（被析构），即存放于内存的值为左值，存放于寄存器(register)的值是右值。</p>
+<p>举例而言，<code>*p</code> 是实体也是左值而 <code>&amp;p</code> 就不是左值。相对应的右值就无法取址，譬如字面值<code>&#39;a&#39;</code>，<code>3</code> （思考一下如果你能令<code>3</code> 的值自增会发生什么悲剧的bug），C++11之后右值更名为纯右值</p>
+<h3 id="After-C-11"><a href="#After-C-11" class="headerlink" title="After C++11"></a>After C++11</h3><blockquote>
+<ul>
+<li>a glvalue (“generalized” lvalue) is an expression whose evaluation determines the identity of an object, bit-field, or function;</li>
+<li>a prvalue (“pure” rvalue) is an expression whose evaluation either computes the value of the operand of an operator or is a void expression (such prvalue has no result object), or initializes an object or a bit-field (such prvalue is said to have a result object).</li>
+<li>an xvalue (an “eXpiring” value) is a glvalue that denotes an object or bit-field whose resources can be reused;</li>
+<li>an lvalue (so-called, historically, because lvalues could appear on the left-hand side of an assignment expression) is a glvalue that is not an xvalue;</li>
+<li>an rvalue (so-called, historically, because rvalues could appear on the right-hand side of an assignment expression) is a prvalue or an xvalue.</li>
+</ul>
+</blockquote>
+<p>CPP 表达式具有两个的独立特征属性：类型 <em>type</em> 和值类别<em>value category</em>。每个表达式都有一些非引用的类型，也就是说每个表达式的结果值<sup id="fnref:4" class="footnote-ref"><a href="#fn:4" rel="footnote"><span class="hint--top hint--rounded" aria-label="move constructor &amp; move assignment，一种浅拷贝, 直接指定内存指针的移动构造和移动赋值
+">[4]</span></a></sup>都属于以下三个主要值类别之一：</p>
+<ul>
+<li>prvalue, pure right value</li>
+<li>xvalue, eXpiring value</li>
+<li>lvalue, left value </li>
+</ul>
+<p>简单翻译下上文就是：</p>
+<ul>
+<li>泛左值是指它的表达式值决定了一个对象，函数or比特的具体属性，譬如 <code>ob.x = 1</code></li>
+<li>纯右值就是说，它仅为计算值 <code>1+2</code> ，或者为空表达式（未创建结果对象）又或者仅用来初始化对象（创建了结果对象）<ul>
+<li>注意：<code>decltype</code> 语句中才会无创建对象，譬如<code>delctype(x++)</code>，<code>x</code> 并不会自增，因为临时对象并未创建</li>
+</ul>
+</li>
+<li>临终值：右值引用新特性带来的语法糖，分为具名引用和不具名引用两种情况讨论，主要用于移动构造和移动赋值<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="我们一般不区分表达式和表达式结果值这两种概念, 他们实际运用上并没有什么区别
+">[3]</span></a></sup>。<code>T &amp;&amp;x</code></li>
+<li>左值：泛左值除去临终值，这里的临终值为具名右值引用</li>
+<li>右值：包含纯右值和临终值，这里的临终值为不具名右值引用</li>
+</ul>
+<p><strong>三者关系如下所示</strong></p>
+<pre><code class=" mermaid">graph TB;
+
+value &#x3D;&#x3D;&gt;glvalue;
+value &#x3D;&#x3D;&gt; rvalue;
+glvalue &#x3D;&#x3D;&gt; lvalue;
+glvalue &#x3D;&#x3D;&gt; xvalue;
+rvalue &#x3D;&#x3D;&gt; xvalue;
+rvalue &#x3D;&#x3D;&gt; prvalue;
+
+</code></pre>
+
+<h3 id="临终值"><a href="#临终值" class="headerlink" title="临终值"></a>临终值</h3><p>重复一下，临终值是随着C++11之后右值引用而出现的。</p>
+<p>未具名右值引用的临终值符合右值的部分性质，即临终值「将亡」，这很符合移动拷贝函数原理：我们通过右值引用实现引动拷贝时只改变指针来快速实现构造or赋值。如下例的<strong>未具名右值引用被视为右值</strong>:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function">T&amp; <span class="hljs-title">foo</span><span class="hljs-params">(T&amp;&amp; x)</span></span><br><span class="hljs-function"></span>&#123;<br>     <span class="hljs-comment">//对x进行一些操作</span><br>     <span class="hljs-keyword">return</span> x;<br>&#125;<br><br><span class="hljs-comment">//调用</span><br><span class="hljs-built_in">foo</span>(<span class="hljs-built_in">get_a_X</span>());<span class="hljs-comment">//get_a_X()是返回类T的右值引用的函数</span><br></code></pre></td></tr></table></figure>
+
+<p>当然，右值引用也可能是具名的，如果某个变量或参数被声明为T&amp;&amp;类型，并且T无需推导即可确定，那么这个变量或参数就是一个<strong>具名右值引用（named rvalue reference）</strong></p>
+<p>假如我们利用对象 <code>T &amp;&amp; ob1.x</code> 对 <code>ob2.x</code> 进行移动赋值，如果我们仍将 <code>x</code> 作为右值处理，那么访问 <code>ob1.x</code> 就会得到一个指向<code>nullptr</code> 的未知错误。因此我们将<strong>具名右值引用视为左值</strong>：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">foo</span><span class="hljs-params">(T&amp;&amp; x)</span></span><br><span class="hljs-function"></span>&#123;<br>    T anotherX = x;<br>   <span class="hljs-comment">//后面还可以访问x</span><br> &#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="移动语义和完美转发"><a href="#移动语义和完美转发" class="headerlink" title="移动语义和完美转发"></a>移动语义和完美转发</h3><p>通过对于右值（rvalue）的重新定义，语言层面基于右值引用实现了移动语义（move semantic）和完美转发（perfect forwarding），能够保留原有设计的情况下提升了代码效率。</p>
+<h4 id="移动语义"><a href="#移动语义" class="headerlink" title="移动语义"></a>移动语义</h4><p>移动语义相对应的是传统的拷贝语义，在拷贝对象是左右值不同情况下具有不同的体现，由于拷贝对象为左值时拷贝语义和移动语义目的不同，不作比较讨论</p>
+<p>如果 <code>that</code> 可以作为 <strong>右值</strong>，那么拷贝语义(copy semantic)从<code>that</code>拷贝到 <code>this</code> 需要：</p>
+<ol>
+<li>检查 <code>this</code> 对象，若有则释放</li>
+<li>拷贝<code>that</code> 对象一份到新生对象</li>
+<li><code>this</code> 指向新生对象</li>
+<li>如果 <code>that</code> 对象为右值，则需析构<code>that</code></li>
+</ol>
+<p>而移动语义仅需要：</p>
+<ul>
+<li>如果 <code>this</code> 对象自身也拥有资源，释放该资源</li>
+<li>将 <code>this</code> 对象的指针或句柄指向 <code>that</code> 对象所拥有的资源</li>
+<li>将 <code>that</code> 对象原本指向该资源的指针或句柄设为空值</li>
+</ul>
+<p>显然拷贝构造函数每次均需要构造临时对象从而导致构造和析构的开销较重。C++11新标准中的<strong>移动语义(move semantic)</strong> 可以用来解决开销问题，原理就是将左值引用转化为无名右值引用，直接接管被拷贝对象资源来实现移动拷贝or赋值，函数为<code>std::move()</code>：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span></span><br><span class="hljs-class">&#123;</span><br><span class="hljs-keyword">public</span>:<br>    <span class="hljs-built_in">Test</span>()<br>    &#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;default constructor&quot;</span> &lt;&lt; endl;<br>    &#125;<br>    <span class="hljs-built_in">Test</span>(<span class="hljs-keyword">const</span> Test &amp;t)<br>    &#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;copy constructor&quot;</span> &lt;&lt; endl;<br>    &#125;<br>    <span class="hljs-comment">// 使用T &amp;&amp; t 右值引用来做对象的浅拷贝</span><br>    <span class="hljs-comment">// 当然，这里是具名的右值引用</span><br>    <span class="hljs-built_in">Test</span>(Test &amp;&amp;t)<br>    &#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;move constructor&quot;</span> &lt;&lt; endl;<br>    &#125;<br>    ~<span class="hljs-built_in">Test</span>()<br>    &#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;destructor&quot;</span> &lt;&lt; endl;<br>    &#125;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    Test t = <span class="hljs-built_in">Test</span>();<br>    Test m = <span class="hljs-built_in">move</span>(t);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><span class="hljs-comment">/*</span><br><span class="hljs-comment">default constructor</span><br><span class="hljs-comment">move constructor</span><br><span class="hljs-comment">destructor</span><br><span class="hljs-comment">destructor</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+
+<p>当然，实际上我们只要利用<code>std::move(x)</code> 即可将 <code>x</code> 强制转化为右值引用，要注意此时的 <code>x</code> 相应指针已被置空。</p>
+<p>注意：<code>static_cast&lt;Type&amp;&amp;&gt;</code> 作用与 <code>std::move(x)</code> 一样</p>
+<p>吐槽一句，STL已经重写过一遍了，所以大概率你没必要自己再写一遍右值引用来加速代码。</p>
+<h4 id="完美转发-perfect-forward"><a href="#完美转发-perfect-forward" class="headerlink" title="完美转发 (perfect forward)"></a>完美转发 (perfect forward)</h4><p>为了解决完美转发问题，我们需要引入转发型引用<code>std::forward&lt;T&gt;(t)</code></p>
+<p>在函数模板中需要保留左右值属性的参数，也就是要被完美转发的参数须被声明为转发型引用类型，即参数必须被声明为 <code>T&amp;&amp;</code> 类型，而 <code>T</code> 必须被包含在函数模板的模板参数列表之中。如果不声明为转发行引用类型，那么在函数域内，无论是左值引用还是右值引用<strong>都是具名引用</strong>，函数体内默认作为左值处理！</p>
+<p><code>std::forward&lt;T&gt;(t)</code> 会为模板 <code>T</code> 一个类型推导，当 <code>T</code> 为左值引用类型 <code>U&amp;</code> 时，<code>t</code> 将被转换为无名左值引用（左值，类型为 <code>U&amp;</code> ）。当 <code>T</code> 为非引用类型 <code>U</code> 或右值引用类型 <code>U&amp;&amp;</code> 时，<code>t</code> 将被转换为无名右值引用（右值，类型为 <code>U&amp;&amp;</code> ）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span><span class="hljs-meta-string">&lt;iostream&gt;</span>  </span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;  <br>  <br><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">X</span> &#123;</span>&#125;;  <br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">inner</span><span class="hljs-params">(<span class="hljs-keyword">const</span> X&amp;)</span> </span>&#123;cout &lt;&lt; <span class="hljs-string">&quot;inner(const X&amp;)&quot;</span> &lt;&lt; endl;&#125;  <br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">inner</span><span class="hljs-params">(X&amp;&amp;)</span> </span>&#123;cout &lt;&lt; <span class="hljs-string">&quot;inner(X&amp;&amp;)&quot;</span> &lt;&lt; endl;&#125;  <br><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">typename</span> T&gt;  <br><span class="hljs-comment">/*</span><br><span class="hljs-comment">void outer(T&amp;&amp; t) &#123;inner(t);&#125;  </span><br><span class="hljs-comment">//输出</span><br><span class="hljs-comment">//innert(const X&amp;)</span><br><span class="hljs-comment">*/</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">outer</span><span class="hljs-params">(T&amp;&amp; t)</span> </span>&#123;<span class="hljs-built_in">inner</span>(forward&lt;T&gt;(t));&#125;  <br>  <br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>  </span><br><span class="hljs-function"></span>&#123;  <br>    X a;  <br>    <span class="hljs-built_in">outer</span>(a);  <br>    <span class="hljs-built_in">outer</span>(<span class="hljs-built_in">X</span>());  <br>&#125;  <br><span class="hljs-comment">//inner(const X&amp;)  </span><br><span class="hljs-comment">//inner(X&amp;&amp;)  </span><br></code></pre></td></tr></table></figure>
+
+
+<h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span><code>T&amp;&amp; x</code>，绑定到右值上的引用，与此对应的是 <code>T&amp; x</code>，左值引用
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:2" class="footnote-text"><span><strong>eXpiring value</strong>，译名有将亡值、临终值等，这里采取维基百科翻译
+<a href="#fnref:2" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:3" class="footnote-text"><span>我们一般不区分表达式和表达式结果值这两种概念, 他们实际运用上并没有什么区别
+<a href="#fnref:3" rev="footnote" class="footnote-backref"> ↩</a></span></span></li><li><span id="fn:4" class="footnote-text"><span><strong>move constructor &amp; move assignment</strong>，一种浅拷贝, 直接指定内存指针的移动构造和移动赋值
+<a href="#fnref:4" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                    
+                      <a class="hover-with-bg" href="/tags/C-11/">C++11</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/03/%E7%AE%97%E6%B3%95%E5%A4%87%E5%BF%98/">
+                        <span class="hidden-mobile">常用算法技巧</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
